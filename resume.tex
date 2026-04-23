@@ -1,11 +1,7 @@
 \documentclass[letterpaper,11pt]{article}
 
-\usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
@@ -22,148 +18,157 @@
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\topmargin}{-.6in}
+\addtolength{\textheight}{1.2in}
+\setlength{\footskip}{5pt}
 
 \urlstyle{same}
-
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
-
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
 \pdfgentounicode=1
 
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\titlerule \vspace{-6pt}]
+
 \newcommand{\resumeItem}[1]{
-  \item\small{{#1 \vspace{-2pt}}}
+  \item\small{#1}
 }
 
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small #3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-6pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small #1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+  \vspace{-2pt}\item
+  \begin{tabularx}{0.97\textwidth}[t]{@{}Xr@{}}
+    \small\textbf{#1} & #2 \\
+  \end{tabularx}\vspace{-6pt}
 }
-
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.25in]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \begin{document}
 
 \begin{center}
-    \textbf{\Huge \scshape Thanakrit Jomhong} \\ \vspace{1pt}
-    \small 092-275-1575 $|$ \href{mailto:thanakritjomhong@gmail.com}{\underline{thanakritjomhong@gmail.com}} $|$
-    \href{https://www.linkedin.com/in/thanakrit-jomhong-8b600034b}{\underline{linkedin}} $|$
-    \href{https://github.com/northlnwza}{\underline{github}}
+    {\Huge \textbf{Thanakrit Jomhong}} \\ \vspace{4pt}
+    \small 092-275-1575 $|$ \href{mailto:thanakritjomhong@gmail.com}{thanakritjomhong@gmail.com} $|$ \href{https://www.linkedin.com/in/thanakrit-jomhong-8b600034b}{linkedin.com/in/thanakrit-jomhong-8b600034b} $|$ \href{https://github.com/northlnwza}{github.com/northlnwza}
 \end{center}
 
 \section{Profile}
-\small I am a Computer Engineering student driven by curiosity, mastery, and clarity. I thrive on solving problems, learning deeply, and helping others see what I see. I enjoy connecting ideas across disciplines and turning complexity into structure. My long-term goal is to build meaningful systems that create real world impact.
+\small
+Computer Engineering student driven by curiosity, mastery, and clarity. Enjoys solving problems, learning deeply, connecting ideas across disciplines, and turning complexity into structure. Long-term goal is to build meaningful systems that create real-world impact.
+\normalsize
 
 \section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Mahidol University}{Aug. 2024 -- May 2028}
-      {Bachelor of Engineering Program in Computer Engineering}{GPA 3.96}
-    \resumeSubheading
-      {Suksanareewittaya School}{May 2021 -- Mar. 2024}
-      {High School, Computer STEM Program}{GPA 4.00}
-    \resumeSubheading
-      {English Score}{}
-      {MU-ELT 113/150 (Equivalent to TOEIC 850+)}{}
-  \resumeSubHeadingListEnd
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Mahidol University}{Aug 2024 -- May 2028}
+    {Bachelor of Engineering Program in Computer Engineering}{GPA: 3.96}
+  \resumeSubheading
+    {Suksanareewittaya School}{May 2021 -- Mar 2024}
+    {High School, Computer STEM Program}{GPA: 4.00}
+\resumeSubHeadingListEnd
 
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
   \small{\item{
-    \textbf{Languages \& Databases}{: Python, C, C++, JAVA, SQL, HTML / CSS} \\
-    \textbf{Libraries \& Frameworks}{: Pandas, Numpy, Matplotlib, Seaborn, PyTorch, Scikit-learn} \\
-    \textbf{Tools}{: Git, Github, Supabase, Vercel, Google Colab, VS Code, spreadsheet, MATLAB, n8n, Docker}
+    \textbf{Languages \& Databases}: Python, C, C++, Java, SQL, HTML/CSS \\
+    \textbf{Tools}: Git, GitHub, Supabase, Vercel, Google Colab, VS Code, spreadsheets, MATLAB, n8n, Docker \\
+    \textbf{Libraries \& Frameworks}: Pandas, NumPy, Matplotlib, Seaborn, PyTorch, scikit-learn \\
+    \textbf{English}: MU-ELT 113/150 (equivalent to TOEIC 850+)
   }}
 \end{itemize}
-
-\section{Experience}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {Head of Sponsorship Coordinator | ClickCamp16, Mahidol Computer Engineering}{May 2025 -- Dec. 2025}{}{}
-    \resumeItemListStart
-      \resumeItem{Negotiation \& Relationship Management}
-      \resumeItem{Formal Contact over 200+ company, apply data management skills}
-      \resumeItem{Secured [130,000] THB in funding}
-    \resumeItemListEnd
-
-  \resumeSubheading
-    {Piscine 42Bangkok School | 42school, KMITL}{May 2024 -- Jun. 2024}{}{}
-    \resumeItemListStart
-      \resumeItem{Completed the one-month selection program at 42}
-      \resumeItem{Trained 70 -100 hours per week, developing autonomy, adaptability, and collaboration skills while building multiple projects under real deadlines.}
-      \resumeItem{Relevant Coursework : UNIX \& Shell, Git \& Version Control, C Programming}
-    \resumeItemListEnd
-
-  \resumeSubheading
-    {Talent Robotics, AI and Coding (Talent RAC) | AI Track, Sirindhorn Science Home}{Oct. 2023}{}{}
-    \resumeItemListStart
-      \resumeItem{A program by IPST, and NECTEC aimed to develop future talents in robotics, AI, and coding through online and on-site training, and hands-on projects from real-world industry.}
-      \resumeItem{Completed onsite training in AI application, 3D design, and IOT}
-      \resumeItem{Designed and implemented an security check system utilizing sensors and image classification model by kidbrightmicroAI platform}
-    \resumeItemListEnd
-\resumeSubHeadingListEnd
 
 \section{Projects}
 \resumeSubHeadingListStart
   \resumeProjectHeading
-      {\textbf{HR-ChatBot} $|$ \emph{n8n, Docker, PosrtgresSQL (Supabase), LLM and RAG}}{}
-      \resumeItemListStart
-        \resumeItem{Developed a cross-platform chatbot to automate HR workflows like leave requests and benefit inquiries through the LINE Messaging API}
-        \resumeItem{Integrated LLM to achieve high-accuracy natural language intent extraction}
-      \resumeItemListEnd
+    {HR ChatBot $|$ n8n, Docker, PostgreSQL (Supabase), LLM, RAG}{}
+    \resumeItemListStart
+      \resumeItem{Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.}
+      \resumeItem{Integrated LLM capabilities to improve natural-language intent extraction accuracy.}
+    \resumeItemListEnd
 
   \resumeProjectHeading
-      {\textbf{BananaRipnessClassification} $|$ \emph{Python, PyTorch and scikit-learn}}{}
-      \resumeItemListStart
-        \resumeItem{Developed a Deep Learning image classification model using ResNet34 and Fastai to identify banana varieties and ripeness stages with F1-score of 87.5\% on the test set.}
-        \resumeItem{Optimized model performance through transfer learning and learning rate scheduling, significantly reducing manual inspection time for agricultural quality assessment.}
-      \resumeItemListEnd
+    {Banana Ripeness Classification $|$ ResNet34, Fastai, , PyTorch, scikit-learn}{}
+    \resumeItemListStart
+      \resumeItem{Built a deep learning image classification model to identify banana varieties and ripeness stages, achieving an F1-score of 87.5\% on the test set.}
+      \resumeItem{Improved model performance through transfer learning and learning-rate scheduling, reducing manual inspection time for agricultural quality assessment.}
+    \resumeItemListEnd
 
   \resumeProjectHeading
-      {\textbf{Bangkok Public Transportation Passenger Insights} $|$ \emph{Pandas, NumPy, Scipy, Plotly, Seaborn, Matplotlib}}{}
-      \resumeItemListStart
-        \resumeItem{Analyzed 14 months of multi-modal transit data (BTS, MRT, ARL, Red Line Train) to identify passenger growth trends, market share shifts, and service stability}
-        \resumeItem{Developed a Z-Score anomaly detection model to correlate passenger volume fluctuations with 35+ specific Thai holidays and events}
-      \resumeItemListEnd
+    {Bangkok Public Transportation Passenger Insights $|$ Pandas, NumPy, SciPy, Plotly, Seaborn, Matplotlib}{}
+    \resumeItemListStart
+      \resumeItem{Analyzed 14 months of multi-modal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.}
+      \resumeItem{Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Security Check System $|$ KidBright Micro AI Platform, Sensors, Image Classification}{}
+    \resumeItemListStart
+      \resumeItem{Designed and implemented a security check system using sensors and an image classification model during the Talent Robotics, AI and Coding program.}
+    \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\section{Extracurricular Activities \& Awards}
+\section{Leadership \& Programs}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Head of Sponsorship Coordinator, ClickCamp16}{May 2025 -- Dec 2025}
+    {Mahidol Computer Engineering}{}
+    \resumeItemListStart
+      \resumeItem{Led sponsorship coordination and relationship management for the event.}
+      \resumeItem{Contacted more than 200 companies and applied structured data-management workflows to outreach.}
+      \resumeItem{Secured 130,000 THB in funding.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Piscine 42 Bangkok School}{May 2024 -- Jun 2024}
+    {42 School, KMITL}{}
+    \resumeItemListStart
+      \resumeItem{Completed the one-month selection program at 42.}
+      \resumeItem{Trained 70--100 hours per week, developing autonomy, adaptability, and collaboration while building projects under real deadlines.}
+      \resumeItem{Relevant coursework: UNIX \& Shell, Git \& Version Control, C Programming.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Talent Robotics, AI and Coding (Talent RAC)}{Oct 2023}
+    {AI Track, Sirindhorn Science Home}{}
+    \resumeItemListStart
+      \resumeItem{Joined a program by IPST and NECTEC focused on robotics, AI, and coding through online and onsite training plus hands-on projects.}
+      \resumeItem{Completed onsite training in AI applications, 3D design, and IoT.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Awards \& Activities}
 \resumeSubHeadingListStart
   \resumeProjectHeading
-      {\textbf{16th Jitasa Camp, Mahidol Engineering Volunteer Club}}{Dec. 2025}
+    {2nd Place Winner, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region)}{Summer 2025}
+
   \resumeProjectHeading
-      {\textbf{2nd Place Winner, Practice AI, Super AI Engineer SS5 (AI INOVATOR TRACK, Western Region)}}{Summer 2025}
+    {Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU}{Sep 2023}
+
   \resumeProjectHeading
-      {\textbf{STAFF Group Leader, CTFriends2, Mahidol Engineering Cybersecurity Club}}{Apr. 2025}
+    {16th Jitasa Camp, Mahidol Engineering Volunteer Club}{Dec 2025}
+
   \resumeProjectHeading
-      {\textbf{STAFF Tickets Seller, INCRISIS Concert, Mahidol Engineering Student Association}}{Apr. 2025}
+    {Staff Group Leader, CTFriends2, Mahidol Engineering Cybersecurity Club}{Apr 2025}
+
   \resumeProjectHeading
-      {\textbf{Participate in Invent for the planet Hackathon, INT Mahidol}}{Feb. 2025}
+    {Staff Tickets Seller, INCRISIS Concert, Mahidol Engineering Student Association}{Apr 2025}
+
   \resumeProjectHeading
-      {\textbf{STAFF Entertainment \& Group Leader, ClickCamp15, Mahidol Computer Engineering}}{Dec. 2024}
+    {Staff Entertainment \& Group Leader, ClickCamp15, Mahidol Computer Engineering}{Dec 2024}
+
   \resumeProjectHeading
-      {\textbf{Gold Medal, Onsite presentation, Data Science Project Contest 2023, CMU}}{Sep. 2023}
+    {Participant, Invent for the Planet Hackathon, INT Mahidol}{Feb 2025}
 \resumeSubHeadingListEnd
 
 \end{document}
