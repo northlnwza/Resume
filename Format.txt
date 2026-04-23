@@ -1,0 +1,259 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Thanapon Thanadunpremdet} \\ \vspace{1pt}
+    \small 061-638-5394 $|$ \href{mailto:thanaponchanal@gmail.com}{\underline{Thanaponchanal@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/Kaompung1988}{\underline{linkedin.com/in/Kaompung1988}} $|$ 
+    \href{https://github.com/Kanompung1988}{\underline{github.com/Kanompung1988}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Mahidol University}{Bangkok, Thailand}
+      {Bachelor of Engineering Program in Computer Engineering}{Aug. 2025 -- May 2029}
+  \resumeSubHeadingListEnd
+
+%-----------INTERNSHIP-----------
+\section{Internship}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {SCBX R\&D \& Innovation Lab}{Aug. 2025 – Present}
+    {AI Researcher Intern}{Bangkok, Thailand}
+    \resumeItemListStart
+      \resumeItem{Architected \textbf{NINJA}, a 4-agent LLM pipeline that ingests and summarizes \textbf{1,200+} finance/AI news items per week into slide-ready briefs.}
+      \resumeItem{Built end-to-end retrieval with \textbf{SerpAPI} \& \textbf{Tavily}, achieving \textbf{95\%} source-credibility accuracy and \textbf{90\%} reduction in hallucinations.}
+      \resumeItem{Generated \textbf{20+} executive-grade PowerPoint decks and posters for R\&D showcase, branded for SCBx leadership.}
+      \resumeItem{Developed interactive dashboards to monitor \emph{coverage}, \emph{faithfulness}, and \emph{insightfulness} in real time.}
+      \resumeItem{Accelerated research freshness by \textbf{30\%}, slashing time-to-insight from \textbf{3 hours} to under \textbf{8 minutes} per topic.}
+    \resumeItemListEnd
+
+      \resumeSubheading
+    {AreaZero.ai}{2025 -- Present}
+    {Founder \& CEO}{Bangkok, Thailand}
+    \resumeItemListStart
+      \resumeItem{Founded \textbf{AreaZero}, an AI-driven technology startup delivering \textbf{agentic AI systems, enterprise chatbots, and computer vision solutions} for real-world clients.}
+      \resumeItem{Secured and delivered \textbf{multiple paying clients}, generating \textbf{six-figure (THB) revenue} within the first operational year.}
+      \resumeItem{Designed and deployed production-grade \textbf{multi-agent systems}, customer-support chatbots, and CV-based automation tools for external organizations.}
+      \resumeItem{Led end-to-end execution including product architecture, client acquisition, solution customization, and deployment.}
+      \resumeItem{Built and launched \textbf{Egoke.co}, a concert-focused digital platform with \textbf{3,800+ active users}, demonstrating product scalability and community growth.}
+    \resumeItemListEnd
+    
+\resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {PSC: Personalized Sentence-level Pronunciation Coaching}{Nov. 2025 -- Apr. 2026}
+    {IEEE IC4E 2025 \textbar\ \textbf{Full Paper (Score 8/10)}}{Fukuoka, Japan}
+    \resumeItemListStart
+      \resumeItem{Proposed a sentence-level pronunciation coaching framework for Thai EFL learners using \textbf{Self-Supervised Speech Models (HuBERT, WavLM)} and forced alignment.}
+      \resumeItem{Introduced \textbf{Evidence Cards} for explainable pronunciation feedback aligned with IELTS criteria.}
+      \resumeItem{Demonstrated strong agreement with certified IELTS examiners and measurable classroom improvement.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {CHAI: Calibrated Hybrid Assessment for IELTS Speaking}{Nov. 2025 -- Dec. 2025}
+    {IEEE iSAI-NLP / IINAE Workshop \textbar\ \textbf{Full Paper \& Best Workshop Paper}}{Phuket, Thailand}
+    \resumeItemListStart
+      \resumeItem{Developed a hybrid \textbf{ASR + SSL-based} IELTS Speaking assessment system with human-prior calibration.}
+      \resumeItem{Achieved \textbf{lower MAE than individual certified examiners}, enabling scalable and reliable speaking evaluation.}
+      \resumeItem{Designed dual-agent architecture for real-time coaching and examiner-grade scoring.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENC & AWARD-----------
+\section{Experience, Awards \& International Representation}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {CardiacZ \textbar\ \textbf{MIT Media Lab Winner \& APICTA 1st Runner-Up}}{2025}
+    {MIT Media Lab (USA) \& Asia Pacific ICT Alliance Awards}{International}
+    \resumeItemListStart
+      \resumeItem{development of \textbf{CardiacZ}, an AI-driven healthcare innovation integrating intelligent diagnostic support systems.}
+      \resumeItem{Awarded \textbf{Winner at MIT Media Lab AI \& Robotics Innovation Challenge} for technical depth and real-world impact.}
+      \resumeItem{Represented Thailand at \textbf{APICTA 2025}, achieving \textbf{1st Runner-Up} among 14+ Asia-Pacific economies.}
+      \resumeItem{Evaluated by international experts from academia, industry, and government on innovation, scalability, and societal impact.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Super AI Engineer Season 5 \textbar\ \textbf{Silver Medal}}{Feb. 2025 -- Jun. 2025}
+    {AIAT \& SUPERAI}{Pathum Thani, Thailand}
+    \resumeItemListStart
+      \resumeItem{Completed \textbf{4 Baseline Challenges} in Level 1: NLP, Computer Vision, Time Series, and Tabular tasks.}
+      \resumeItem{Audio Challenge: Used hybrid \textbf{ASR + LLM} approach to outperform 50+ teams by \textbf{15\% higher accuracy}.}
+      \resumeItem{Crime Analysis: Applied LLM fine-tuning to reach \textbf{92\% F1-score} vs. \textbf{78\% average}, ranking 3rd nationwide.}
+      \resumeItem{Selected into \textbf{Level 2} under Team EXP in Thailand's national AI engineer training program.}
+    \resumeItemListEnd
+    
+
+  \resumeSubheading
+    {NASA Space Apps Challenge \textbar\ \textbf{Space-Hero Companion}}{Oct. 2024}
+    {NASA \& Global Organizers}{Nonthaburi, Thailand}
+    \resumeItemListStart
+      \resumeItem{Developed \textbf{Space-Hero Companion}, a Unity-based C\# game application that helps astronauts manage stress using a virtual AI pet.}
+      \resumeItem{Achieved \textbf{87.5\% emotion recognition accuracy}, outperforming 200+ teams by \textbf{12\%} using multimodal AI.}
+      \resumeItem{\textbf{Won 2nd Runner-Up} and received the Local Leader Award for best mental health innovation.}
+    \resumeItemListEnd
+
+%-----------EXPERIENC & AWARD-----------
+  \resumeSubheading
+    {Future Innovation Challenge Summit (FICS) 2025 \textbar\ \textbf{L Wiang Ping} }{Dec. 2025}
+    {Thailand Representative }{NUST, Pakistan}
+    \resumeItemListStart
+      \resumeItem{Selected as \textbf{Thailand’s representative} to compete at the \textbf{Future Innovation Challenge Summit (FICS)}, an international innovation competition hosted by \textbf{National University of Sciences and Technology (NUST), Pakistan}.}
+      \resumeItem{Presented \textbf{L Wiang Ping}, an AI-powered travel and local business recommendation system using \textbf{LLM + RAG-based personalization}.}
+      \resumeItem{Demonstrated applied AI for smart tourism, SME support, and data-driven urban decision-making in an international setting.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {7-11 x AI Cai Club Hackathon \textbar\ \textbf{EATIT.AI}}{Jan. 2025}
+    {CP ALL \& Cai Club}{Bangkok, Thailand}
+    \resumeItemListStart
+      \resumeItem{Built an \textbf{LLM-powered assistant} using Python and Few-shot Prompting to recommend personalized product bundles.}
+      \resumeItem{Improved recommendation accuracy to \textbf{81.2\%}, outperforming the baseline system by \textbf{25\%} among 150+ teams.}
+      \resumeItem{\textbf{Won 2nd Runner-Up} by demonstrating strong technical innovation and business value.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Mitr Phol GenAI Hackathon 2025 \textbar\ \textbf{ZUGUS}}{Jul. 2025}
+    {Mitr Phol Group \& Partners}{Bangkok, Thailand}
+    \resumeItemListStart
+      \resumeItem{Created \textbf{ZUGUS}, an AI-powered maintenance assistant (DoTa-RAG, AWS Bedrock, SmolVLM).}
+      \resumeItem{Estimated \textbf{40–60\% MTTR reduction}, $>$95\% faithfulness, and \$12M+/year projected savings.}
+      \resumeItem{Awarded the \textbf{Rising Star Award}.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {\textbf{Salaya Go} $|$ \emph{Python, LLM, RAG, Google Maps API}}{Dec. 2025}
+  \resumeItemListStart
+    \resumeItem{Built \textbf{Salaya Go}, an AI-powered smart campus travel and local business recommendation platform for students, visitors, and surrounding communities.}
+    \resumeItem{Utilized \textbf{LLM + RAG-based personalization} to recommend food, travel routes, and nearby services based on user intent and location context.}
+    \resumeItem{Designed for real-world deployment in university-scale and urban environments to support local economies.}
+  \resumeItemListEnd
+\resumeProjectHeading
+  {\textbf{Smart Pathology} $|$ \emph{Computer Vision, LLM, RAG, Multi-Agent Systems}}{Dec. 2025}
+  \resumeItemListStart
+    \resumeItem{Developed \textbf{Smart Pathology}, an AI-augmented digital pathology assistant designed to support pathologists in slide analysis and report generation.}
+    \resumeItem{Applied \textbf{computer vision models} to identify regions of interest (ROI) and extract morphological features from pathology slides.}
+    \resumeItem{Designed a \textbf{multi-agent LLM architecture} for clinical reasoning, report drafting, and question answering.}
+    \resumeItem{Integrated \textbf{Retrieval-Augmented Generation (RAG)} to validate outputs against medical guidelines, improving reliability and explainability.}
+    \resumeItem{Aimed to reduce diagnostic turnaround time and minimize fatigue-related errors in clinical workflows.}
+  \resumeItemListEnd
+
+
+\resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages \& Databases}{: Python, C, SQL, HTML/CSS} \\
+    \textbf{AI / ML}{: Machine Learning, Deep Learning, LLM, RAG, ASR, Computer Vision} \\
+    \textbf{Libraries \& Frameworks}{: PyTorch, TensorFlow, scikit-learn, NumPy, Pandas, OpenCV, Mediapipe} \\
+    \textbf{Developer Tools}{: Git, GitHub, Google Colab, VS Code, Jupyter Notebook, Canva, Figma}
+  }}
+\end{itemize}
+
+%-------------------------------------------
+\end{document}
