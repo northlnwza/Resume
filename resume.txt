@@ -1,0 +1,61 @@
+@name: Thanakrit Jomhong
+@contact: 092-275-1575 | thanakritjomhong@gmail.com | linkedin.com/in/thanakrit-jomhong-8b600034b | github.com/northlnwza
+
+# Profile
+Computer Engineering student driven by curiosity, mastery, and clarity. Enjoys solving problems, learning deeply, connecting ideas across disciplines, and turning complexity into structure. Long-term goal is to build meaningful systems that create real-world impact.
+
+# Education
+> Mahidol University :: Aug 2024 -- May 2028
+Bachelor of Engineering Program in Computer Engineering :: GPA: 3.96
+
+> Suksanareewittaya School :: May 2021 -- Mar 2024
+High School, Computer STEM Program :: GPA: 4.00
+
+# Technical Skills
+Languages & Databases: Python, C, C++, Java, SQL, HTML/CSS
+Tools: Git, GitHub, Supabase, Vercel, Google Colab, VS Code, spreadsheets, MATLAB, n8n, Docker
+Libraries & Frameworks: Pandas, NumPy, Matplotlib, Seaborn, PyTorch, scikit-learn
+English: MU-ELT 113/150
+
+# Projects
+> HR ChatBot | n8n, Docker, PostgreSQL (Supabase), LLM, RAG
+- Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.
+- Integrated LLM capabilities to improve natural-language intent extraction accuracy.
+
+> Banana Ripeness Classification | ResNet34, Fastai, PyTorch, scikit-learn
+- Built a deep learning image classification model to identify banana varieties and ripeness stages, achieving an F1-score of 87.5% on the test set.
+- Improved model performance through transfer learning and learning-rate scheduling, reducing manual inspection time for agricultural quality assessment.
+
+> Bangkok Public Transportation Passenger Insights | Pandas, NumPy, SciPy, Plotly, Seaborn, Matplotlib
+- Analyzed 14 months of multi-modal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.
+- Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.
+
+> Security Check System | KidBright Micro AI Platform, Sensors, Image Classification
+- Designed and implemented a security check system using sensors and an image classification model during the Talent Robotics, AI and Coding program.
+
+# Leadership & Programs
+> Head of Sponsorship Coordinator, ClickCamp16 :: May 2025 -- Dec 2025
+Mahidol Computer Engineering
+- Led sponsorship coordination and relationship management for the event.
+- Contacted more than 200 companies and applied structured data-management workflows to outreach.
+- Secured 130,000 THB in funding.
+
+> Piscine 42 Bangkok School :: May 2024 -- Jun 2024
+42 School, KMITL
+- Completed the one-month selection program at 42.
+- Trained 70--100 hours per week, developing autonomy, adaptability, and collaboration while building projects under real deadlines.
+- Relevant coursework: UNIX & Shell, Git & Version Control, C Programming.
+
+> Talent Robotics, AI and Coding (Talent RAC) :: Oct 2023
+AI Track, Sirindhorn Science Home
+- Joined a program by IPST and NECTEC focused on robotics, AI, and coding through online and onsite training plus hands-on projects.
+- Completed onsite training in AI applications, 3D design, and IoT.
+
+# Awards & Activities
+> 2nd Place Winner, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
+> Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU :: Sep 2023
+> Construction of check dams and school facilities, 16th Jitasa Camp, Mahidol Engineering Volunteer Club :: Dec 2025
+> Staff Group Leader, CTFriends2, Mahidol Engineering Cybersecurity Club :: Apr 2025
+> Staff Tickets Seller, INCRISIS Concert, Mahidol Engineering Student Association :: Apr 2025
+> Staff Entertainment & Group Leader, ClickCamp15, Mahidol Computer Engineering :: Dec 2024
+> Participant, Invent for the Planet Hackathon, INT Mahidol :: Feb 2025

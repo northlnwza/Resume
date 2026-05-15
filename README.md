@@ -2,8 +2,34 @@
 
 This folder contains:
 
+- `resume.txt`: the easy text source you edit
+- `compile_resume.mjs`: converts `resume.txt` into `resume.tex`
 - `resume.tex`: the editable LaTeX resume source
 - `build_resume.sh`: a small build script that compiles `resume.tex` into PDF
+
+## Easy edit format
+
+Edit `resume.txt`.
+
+```text
+# Projects
+> Project Topic | Python, LLM, RAG
+- What you built, improved, measured, or delivered.
+- Another result or responsibility.
+```
+
+Use `::` only when you want text on the right side of the resume:
+
+```text
+> Mahidol University :: Aug 2024 -- May 2028
+Bachelor of Engineering Program in Computer Engineering :: GPA: 3.96
+```
+
+Generate the LaTeX resume:
+
+```bash
+node compile_resume.mjs
+```
 
 ## Build
 
@@ -36,4 +62,10 @@ cargo install tectonic
 
 ```bash
 ./build_resume.sh resume.tex build
+```
+
+## Generate and build
+
+```bash
+node compile_resume.mjs resume.txt resume.tex --pdf
 ```
