@@ -3,7 +3,7 @@
 This folder contains:
 
 - `resume.txt`: the easy text source you edit
-- `compile_resume.mjs`: converts `resume.txt` into `resume.tex`
+- `src/main.rs`: converts `resume.txt` into `resume.tex`
 - `resume.tex`: the editable LaTeX resume source
 - `build_resume.sh`: a small build script that compiles `resume.tex` into PDF
 
@@ -28,7 +28,7 @@ Bachelor of Engineering Program in Computer Engineering :: GPA: 3.96
 Generate the LaTeX resume:
 
 ```bash
-node compile_resume.mjs
+cargo run
 ```
 
 ## Build
@@ -67,5 +67,5 @@ cargo install tectonic
 ## Generate and build
 
 ```bash
-node compile_resume.mjs resume.txt resume.tex --pdf
+cargo run -- resume.txt resume.tex --pdf
 ```
