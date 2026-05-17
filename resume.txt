@@ -1,5 +1,5 @@
 @name: Thanakrit Jomhong
-@contact: 092-275-1575 | thanakritjomhong@gmail.com | linkedin.com/in/thanakrit-jomhong-8b600034b | github.com/northlnwza
+@contact: 092-275-1575 | thanakritjomhong@gmail.com | linkedin.com/in/tjomhong2006 | github.com/northlnwza
 
 # Profile
 Computer Engineering student driven by curiosity, mastery, and clarity. Enjoys solving problems, learning deeply, connecting ideas across disciplines, and turning complexity into structure. Long-term goal is to build meaningful systems that create real-world impact.
@@ -18,7 +18,7 @@ Libraries & Frameworks: Pandas, NumPy, Matplotlib, Seaborn, PyTorch, scikit-lear
 English: MU-ELT 113/150
 
 # Projects
-> HR ChatBot | n8n, Docker, PostgreSQL (Supabase), LLM, RAG
+> HR ChatBot | n8n selfhost, Docker, Supabase (PostgreSQL), LLM, RAG
 - Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.
 - Integrated LLM capabilities to improve natural-language intent extraction accuracy.
 
@@ -52,9 +52,9 @@ AI Track, Sirindhorn Science Home
 - Completed onsite training in AI applications, 3D design, and IoT.
 
 # Awards & Activities
-> 2nd Place Winner, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
+> 2nd Place Winner, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
 > Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU :: Sep 2023
-> Construction of check dams and school facilities, 16th Jitasa Camp, Mahidol Engineering Volunteer Club :: Dec 2025
+> Construction of school facilities, 16th Jitasa Camp, Mahidol Engineering Volunteer Club :: Dec 2025
 > Staff Group Leader, CTFriends2, Mahidol Engineering Cybersecurity Club :: Apr 2025
 > Staff Tickets Seller, INCRISIS Concert, Mahidol Engineering Student Association :: Apr 2025
 > Staff Entertainment & Group Leader, ClickCamp15, Mahidol Computer Engineering :: Dec 2024
