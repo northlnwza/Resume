@@ -1,1 +1,1 @@
-/mnt/c/Users/win/Documents/Resume/target/debug/resume-compiler: /mnt/c/Users/win/Documents/Resume/src/main.rs
+/Users/xynorith/Documents/stuff/Resume/target/debug/resume-compiler: /Users/xynorith/Documents/stuff/Resume/src/main.rs

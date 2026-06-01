@@ -304,7 +304,10 @@ fn render_latex(resume: &Resume) -> String {
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\ifdefined\pdfgentounicode
 \input{glyphtounicode}
+\pdfgentounicode=1
+\fi
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -323,7 +326,6 @@ fn render_latex(resume: &Resume) -> String {
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
-\pdfgentounicode=1
 
 \titleformat{\section}{
   \vspace{-6pt}\scshape\raggedright\large

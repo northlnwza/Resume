@@ -7,7 +7,10 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\ifdefined\pdfgentounicode
 \input{glyphtounicode}
+\pdfgentounicode=1
+\fi
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -26,7 +29,6 @@
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
-\pdfgentounicode=1
 
 \titleformat{\section}{
   \vspace{-6pt}\scshape\raggedright\large
@@ -110,6 +112,13 @@ Computer Engineering student driven by curiosity, mastery, and clarity. Enjoys s
     \resumeItemListStart
       \resumeItem{Analyzed 14 months of multi-modal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.}
       \resumeItem{Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Space Fighter $|$ Java, Swing, OOP, Multithreading, Event-Driven Programming}{}
+    \resumeItemListStart
+      \resumeItem{Built a desktop arcade shooting game with player controls, automatic shooting, asteroid collision detection, upgrade mechanics, difficulty levels, and sound settings.}
+      \resumeItem{Applied object-oriented design and concurrent programming by separating game entities into classes and using threads to manage asteroid spawning, bullet movement, and real-time gameplay.}
     \resumeItemListEnd
 
   \resumeProjectHeading

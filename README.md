@@ -57,10 +57,10 @@ The generated PDF will be written to `build/resume.pdf`.
 
 The build script supports `latexmk`, `pdflatex`, or `tectonic`.
 
-Option 1: install `tectonic` with Cargo. This works on macOS, Linux, and WSL:
+Option 1: install `tectonic` on macOS with Homebrew:
 
 ```bash
-cargo install tectonic
+brew install tectonic
 ```
 
 Option 2: install a minimal TeX Live toolchain on WSL or Ubuntu:
@@ -70,7 +70,7 @@ sudo apt update
 sudo apt install -y latexmk texlive-latex-base texlive-latex-recommended texlive-latex-extra
 ```
 
-Option 3: install a LaTeX toolchain on macOS with Homebrew:
+Option 3: install a larger LaTeX toolchain on macOS with Homebrew:
 
 ```bash
 brew install --cask basictex

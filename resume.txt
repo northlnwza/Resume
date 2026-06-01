@@ -30,6 +30,10 @@ English: MU-ELT 113/150
 - Analyzed 14 months of multi-modal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.
 - Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.
 
+> Space Fighter | Java, Swing, OOP, Multithreading, Event-Driven Programming
+- Built a desktop arcade shooting game with player controls, automatic shooting, asteroid collision detection, upgrade mechanics, difficulty levels, and sound settings.
+- Applied object-oriented design and concurrent programming by separating game entities into classes and using threads to manage asteroid spawning, bullet movement, and real-time gameplay.
+
 > Security Check System | KidBright Micro AI Platform, Sensors, Image Classification
 - Designed and implemented a security check system using sensors and an image classification model during the Talent Robotics, AI and Coding program.
 
