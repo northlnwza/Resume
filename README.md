@@ -27,6 +27,12 @@ Bachelor of Engineering Program in Computer Engineering :: GPA: 3.96
 
 Generate the LaTeX resume:
 
+If you do not have Rust installed yet, install it from rustup first:
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
 ```bash
 cargo run
 ```
