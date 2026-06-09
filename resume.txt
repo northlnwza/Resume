@@ -6,10 +6,7 @@ Computer Engineering student driven by curiosity, mastery, and clarity. Enjoys s
 
 # Education
 > Mahidol University :: Aug 2024 -- May 2028
-Bachelor of Engineering Program in Computer Engineering :: GPA: 3.96
-
-> Suksanareewittaya School :: May 2021 -- Mar 2024
-High School, Computer STEM Program :: GPA: 4.00
+Bachelor of Engineering Program in Computer Engineering :: GPA: 3.90
 
 # Technical Skills
 Languages & Databases: Python, C, C++, Java, SQL, HTML/CSS
@@ -23,19 +20,15 @@ English: MU-ELT 113/150
 - Integrated LLM capabilities to improve natural-language intent extraction accuracy.
 
 > Banana Ripeness Classification | ResNet34, Fastai, PyTorch, scikit-learn
-- Built a deep learning image classification model to identify banana varieties and ripeness stages, achieving an F1-score of 87.5% on the test set.
+- Built a deep learning image classification model to identify banana varieties and ripeness stages, achieving an F1-score of 87.5%.
 - Improved model performance through transfer learning and learning-rate scheduling, reducing manual inspection time for agricultural quality assessment.
+
+> Security Check System | KidBright Micro AI Platform, Sensors, Image Classification
+- Designed and implemented a security check system using sensors and an image classification model during the Talent Robotics, AI and Coding program.
 
 > Bangkok Public Transportation Passenger Insights | Pandas, NumPy, SciPy, Plotly, Seaborn, Matplotlib
 - Analyzed 14 months of multi-modal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.
 - Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.
-
-> Space Fighter | Java, Swing, OOP, Multithreading, Event-Driven Programming
-- Built a desktop arcade shooting game with player controls, automatic shooting, asteroid collision detection, upgrade mechanics, difficulty levels, and sound settings.
-- Applied object-oriented design and concurrent programming by separating game entities into classes and using threads to manage asteroid spawning, bullet movement, and real-time gameplay.
-
-> Security Check System | KidBright Micro AI Platform, Sensors, Image Classification
-- Designed and implemented a security check system using sensors and an image classification model during the Talent Robotics, AI and Coding program.
 
 # Leadership & Programs
 > Head of Sponsorship Coordinator, ClickCamp16 :: May 2025 -- Dec 2025
@@ -50,16 +43,7 @@ Mahidol Computer Engineering
 - Trained 70--100 hours per week, developing autonomy, adaptability, and collaboration while building projects under real deadlines.
 - Relevant coursework: UNIX & Shell, Git & Version Control, C Programming.
 
-> Talent Robotics, AI and Coding (Talent RAC) :: Oct 2023
-AI Track, Sirindhorn Science Home
-- Joined a program by IPST and NECTEC focused on robotics, AI, and coding through online and onsite training plus hands-on projects.
-- Completed onsite training in AI applications, 3D design, and IoT.
-
 # Awards & Activities
 > 2nd Place Winner, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
 > Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU :: Sep 2023
-> Construction of school facilities, 16th Jitasa Camp, Mahidol Engineering Volunteer Club :: Dec 2025
-> Staff Group Leader, CTFriends2, Mahidol Engineering Cybersecurity Club :: Apr 2025
-> Staff Tickets Seller, INCRISIS Concert, Mahidol Engineering Student Association :: Apr 2025
-> Staff Entertainment & Group Leader, ClickCamp15, Mahidol Computer Engineering :: Dec 2024
 > Participant, Invent for the Planet Hackathon, INT Mahidol :: Feb 2025
