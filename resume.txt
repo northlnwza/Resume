@@ -1,49 +1,46 @@
 @name: Thanakrit Jomhong
 @contact: 092-275-1575 | thanakritjomhong@gmail.com | linkedin.com/in/tjomhong2006 | github.com/northlnwza
 
-# Profile
-Computer Engineering student driven by curiosity, mastery, and clarity. Enjoys solving problems, learning deeply, connecting ideas across disciplines, and turning complexity into structure. Long-term goal is to build meaningful systems that create real-world impact.
-
 # Education
 > Mahidol University :: Aug 2024 -- May 2028
 Bachelor of Engineering Program in Computer Engineering :: GPA: 3.90
 
-# Technical Skills
-Languages & Databases: Python, C, C++, Java, SQL, HTML/CSS
-Tools: Git, GitHub, Supabase, Vercel, Google Colab, VS Code, spreadsheets, MATLAB, n8n, Docker
-Libraries & Frameworks: Pandas, NumPy, Matplotlib, Seaborn, PyTorch, scikit-learn
-English: MU-ELT 113/150
+# Experience
 
-# Projects
-> HR ChatBot | n8n selfhost, Docker, Supabase (PostgreSQL), LLM, RAG
-- Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.
-- Integrated LLM capabilities to improve natural-language intent extraction accuracy.
+> Western Digital, Internship :: Jun 2026 -- Aug 2026
+Manufacturing Engineer(Machine Learning / Computer Vision), AVI Vision Enhancement
+- Built a YOLO instance segmentation pipeline for an Automated Visual Inspection (AVI) system on a live Genesis production line, targeting false-reject reduction in the ML re-inspection workflow.
+- Constructed a labeled defect dataset by hand-annotating 1,500+ production images across 6 defect classes using open-source annotation tooling. established labeling documentation standards to ensure annotation consistency and enable dataset expansion.
+- Reduced image preprocessing time from 1 hour to 3 minutes (20x) by implementing multithreaded crop extraction and migrating training workloads to a GPU server, accelerating experiment iteration cycles.
+- Designed a production deployment architecture pairing a Rust orchestration layer (I/O, config, operator UI) with a persistent Python ML microservice over gRPC for Windows line-PC deployment.
 
-> Banana Ripeness Classification | ResNet34, Fastai, PyTorch, scikit-learn
-- Built a deep learning image classification model to identify banana varieties and ripeness stages, achieving an F1-score of 87.5%.
-- Improved model performance through transfer learning and learning-rate scheduling, reducing manual inspection time for agricultural quality assessment.
-
-> Security Check System | KidBright Micro AI Platform, Sensors, Image Classification
-- Designed and implemented a security check system using sensors and an image classification model during the Talent Robotics, AI and Coding program.
-
-> Bangkok Public Transportation Passenger Insights | Pandas, NumPy, SciPy, Plotly, Seaborn, Matplotlib
-- Analyzed 14 months of multi-modal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.
-- Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.
-
-# Leadership & Programs
 > Head of Sponsorship Coordinator, ClickCamp16 :: May 2025 -- Dec 2025
 Mahidol Computer Engineering
-- Led sponsorship coordination and relationship management for the event.
-- Contacted more than 200 companies and applied structured data-management workflows to outreach.
-- Secured 130,000 THB in funding.
+- Led sponsorship strategy and relationship management for a university computing camp; secured 130,000 THB in funding.
+- Contacted 200+ companies and built structured outreach-tracking workflows to manage the full sponsorship pipeline.
 
 > Piscine 42 Bangkok School :: May 2024 -- Jun 2024
 42 School, KMITL
-- Completed the one-month selection program at 42.
-- Trained 70--100 hours per week, developing autonomy, adaptability, and collaboration while building projects under real deadlines.
-- Relevant coursework: UNIX & Shell, Git & Version Control, C Programming.
+- Completed the intensive one-month selection program, shipping peer-evaluated C projects under strict deadlines with no formal instruction.
+- Core topics: C programming, UNIX & shell, Git & version control.
 
-# Awards & Activities
+# Projects
+> Banana Ripeness Classification | ResNet34, PyTorch, scikit-learn
+- Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.
+- Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5%.
+- Fine-tuned a ResNet34 via transfer learning with learning-rate scheduling for agricultural quality assessment.
+
+> HR ChatBot | n8n selfhost, Docker, Supabase (PostgreSQL), LLM, RAG
+- Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.
+- Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling 5 intent categories end-to-end.
+
+# Technical Skills
+Languages: Python, C, C++, Java, SQL, Rust, HTML/CSS
+ML / CV: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy
+Systems & Tools: Docker, Git/GitHub, gRPC, FastAPI, Linux, Supabase, Vercel, n8n, MATLAB
+
+# Awards
 > 2nd Place Winner, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
-> Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU :: Sep 2023
 > Participant, Invent for the Planet Hackathon, INT Mahidol :: Feb 2025
+> Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU :: Sep 2023
+
