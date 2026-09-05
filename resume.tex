@@ -7,10 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\ifdefined\pdfgentounicode
 \input{glyphtounicode}
-\pdfgentounicode=1
-\fi
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -29,6 +26,7 @@
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
+\pdfgentounicode=1
 
 \titleformat{\section}{
   \vspace{-6pt}\scshape\raggedright\large
@@ -81,7 +79,7 @@
       \resumeItem{Built a YOLO instance segmentation pipeline for an Automated Visual Inspection (AVI) system on a live Genesis production line, targeting false-reject reduction in the ML re-inspection workflow.}
       \resumeItem{Constructed a labeled defect dataset by hand-annotating 1,500+ production images across 6 defect classes using open-source annotation tooling. established labeling documentation standards to ensure annotation consistency and enable dataset expansion.}
       \resumeItem{Reduced image preprocessing time from 1 hour to 3 minutes (20x) by implementing multithreaded crop extraction and migrating training workloads to a GPU server, accelerating experiment iteration cycles.}
-      \resumeItem{Designed a production deployment architecture pairing a Rust orchestration layer (I/O, config, operator UI) with a persistent Python ML microservice over gRPC for Windows line-PC deployment.}
+      \resumeItem{Deployed the model on the exisiting pipeline, which cuts the manual review workload by 64\%.}
     \resumeItemListEnd
 
   \resumeSubheading
@@ -124,7 +122,7 @@
   \small{\item{
     \textbf{Languages}: Python, C, C++, Java, SQL, Rust, HTML/CSS \\
     \textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy \\
-    \textbf{Systems \& Tools}: Docker, Git/GitHub, gRPC, FastAPI, Linux, Supabase, Vercel, n8n, MATLAB
+    \textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n, MATLAB
   }}
 \end{itemize}
 

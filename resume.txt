@@ -12,7 +12,7 @@ Manufacturing Engineer(Machine Learning / Computer Vision), AVI Vision Enhanceme
 - Built a YOLO instance segmentation pipeline for an Automated Visual Inspection (AVI) system on a live Genesis production line, targeting false-reject reduction in the ML re-inspection workflow.
 - Constructed a labeled defect dataset by hand-annotating 1,500+ production images across 6 defect classes using open-source annotation tooling. established labeling documentation standards to ensure annotation consistency and enable dataset expansion.
 - Reduced image preprocessing time from 1 hour to 3 minutes (20x) by implementing multithreaded crop extraction and migrating training workloads to a GPU server, accelerating experiment iteration cycles.
-- Designed a production deployment architecture pairing a Rust orchestration layer (I/O, config, operator UI) with a persistent Python ML microservice over gRPC for Windows line-PC deployment.
+- Deployed the model on the exisiting pipeline, which cuts the manual review workload by 64%.
 
 > Head of Sponsorship Coordinator, ClickCamp16 :: May 2025 -- Dec 2025
 Mahidol Computer Engineering
@@ -37,7 +37,7 @@ Mahidol Computer Engineering
 # Technical Skills
 Languages: Python, C, C++, Java, SQL, Rust, HTML/CSS
 ML / CV: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy
-Systems & Tools: Docker, Git/GitHub, gRPC, FastAPI, Linux, Supabase, Vercel, n8n, MATLAB
+Systems & Tools: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n, MATLAB
 
 # Awards
 > 2nd Place Winner, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
