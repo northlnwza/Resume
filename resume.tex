@@ -78,24 +78,15 @@
     \resumeItemListStart
       \resumeItem{Built a YOLO instance segmentation pipeline for an Automated Visual Inspection (AVI) system on a live Genesis production line, targeting false-reject reduction in the ML re-inspection workflow.}
       \resumeItem{Constructed a labeled defect dataset by hand-annotating 1,500+ production images across 6 defect classes using open-source annotation tooling. established labeling documentation standards to ensure annotation consistency and enable dataset expansion.}
-      \resumeItem{Reduced image preprocessing time from 1 hour to 3 minutes (20x) by implementing multithreaded crop extraction and migrating training workloads to a GPU server, accelerating experiment iteration cycles.}
-      \resumeItem{Deployed the model on the exisiting pipeline, which cuts the manual review workload by 64\%.}
+      \resumeItem{Integrated the model into the existing inspection pipeline, reducing manual review workload by 64\%.}
     \resumeItemListEnd
 
   \resumeSubheading
     {Head of Sponsorship Coordinator, ClickCamp16}{May 2025 -- Dec 2025}
     {Mahidol Computer Engineering}{}
     \resumeItemListStart
-      \resumeItem{Led sponsorship strategy and relationship management for a university computing camp; secured 130,000 THB in funding.}
+      \resumeItem{Led sponsorship strategy and relationship management for a university computing camp, secured 130,000 THB in funding.}
       \resumeItem{Contacted 200+ companies and built structured outreach-tracking workflows to manage the full sponsorship pipeline.}
-    \resumeItemListEnd
-
-  \resumeSubheading
-    {Piscine 42 Bangkok School}{May 2024 -- Jun 2024}
-    {42 School, KMITL}{}
-    \resumeItemListStart
-      \resumeItem{Completed the intensive one-month selection program, shipping peer-evaluated C projects under strict deadlines with no formal instruction.}
-      \resumeItem{Core topics: C programming, UNIX \& shell, Git \& version control.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -106,23 +97,32 @@
     \resumeItemListStart
       \resumeItem{Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.}
       \resumeItem{Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5\%.}
-      \resumeItem{Fine-tuned a ResNet34 via transfer learning with learning-rate scheduling for agricultural quality assessment.}
     \resumeItemListEnd
 
   \resumeProjectHeading
     {HR ChatBot $|$ n8n selfhost, Docker, Supabase (PostgreSQL), LLM, RAG}{}
     \resumeItemListStart
       \resumeItem{Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.}
-      \resumeItem{Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling 5 intent categories end-to-end.}
+      \resumeItem{Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {EnergyPulse $|$ Python, SQL, SQLite, dbt, Apache Airflow, BigQuery}{}
+    \resumeItemListStart
+      \resumeItem{Developed a data ingestion prototype processing 100,000 synthetic energy records in 0.194 seconds in a local in-memory SQLite benchmark.}
+      \resumeItem{Implemented primary-key-based idempotent replay, reprocessing 10,000 existing records with zero additional rows in the prototype experiment.}
+      \resumeItem{Evaluated SQL query optimization through indexed versus non-indexed execution, measuring a 99.9\% reduction in median query latency for a selective analytical query.}
+      \resumeItem{Tested data-quality validation against 1,000 deliberately injected invalid records in a 100,000-record synthetic dataset.}
+      \resumeItem{Designed an extensible ETL/ELT architecture for incremental ingestion, automated data testing, workflow orchestration, and analytics-ready warehouse modeling.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
   \small{\item{
-    \textbf{Languages}: Python, C, C++, Java, SQL, Rust, HTML/CSS \\
     \textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy \\
-    \textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n, MATLAB
+    \textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n \\
+    \textbf{Data Engineering \& Analytics}: ETL/ELT Pipelines, Data Cleaning \& Validation, SQL Query Optimization, Relational Database Design, Data Modeling, API Data Ingestion
   }}
 \end{itemize}
 
@@ -130,10 +130,6 @@
 \resumeSubHeadingListStart
   \resumeSubheading
     {2nd Place Winner, Super AI Engineer SS5 (AI Innovator Track, Western Region)}{Summer 2025}
-    {}{}
-
-  \resumeSubheading
-    {Participant, Invent for the Planet Hackathon, INT Mahidol}{Feb 2025}
     {}{}
 
   \resumeSubheading

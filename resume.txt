@@ -11,36 +11,34 @@ Bachelor of Engineering Program in Computer Engineering :: GPA: 3.90
 Manufacturing Engineer(Machine Learning / Computer Vision), AVI Vision Enhancement
 - Built a YOLO instance segmentation pipeline for an Automated Visual Inspection (AVI) system on a live Genesis production line, targeting false-reject reduction in the ML re-inspection workflow.
 - Constructed a labeled defect dataset by hand-annotating 1,500+ production images across 6 defect classes using open-source annotation tooling. established labeling documentation standards to ensure annotation consistency and enable dataset expansion.
-- Reduced image preprocessing time from 1 hour to 3 minutes (20x) by implementing multithreaded crop extraction and migrating training workloads to a GPU server, accelerating experiment iteration cycles.
-- Deployed the model on the exisiting pipeline, which cuts the manual review workload by 64%.
+- Integrated the model into the existing inspection pipeline, reducing manual review workload by 64%.
 
 > Head of Sponsorship Coordinator, ClickCamp16 :: May 2025 -- Dec 2025
 Mahidol Computer Engineering
-- Led sponsorship strategy and relationship management for a university computing camp; secured 130,000 THB in funding.
+- Led sponsorship strategy and relationship management for a university computing camp, secured 130,000 THB in funding.
 - Contacted 200+ companies and built structured outreach-tracking workflows to manage the full sponsorship pipeline.
-
-> Piscine 42 Bangkok School :: May 2024 -- Jun 2024
-42 School, KMITL
-- Completed the intensive one-month selection program, shipping peer-evaluated C projects under strict deadlines with no formal instruction.
-- Core topics: C programming, UNIX & shell, Git & version control.
 
 # Projects
 > Banana Ripeness Classification | ResNet34, PyTorch, scikit-learn
 - Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.
 - Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5%.
-- Fine-tuned a ResNet34 via transfer learning with learning-rate scheduling for agricultural quality assessment.
 
 > HR ChatBot | n8n selfhost, Docker, Supabase (PostgreSQL), LLM, RAG
 - Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.
-- Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling 5 intent categories end-to-end.
+- Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.
+
+> EnergyPulse | Python, SQL, SQLite, dbt, Apache Airflow, BigQuery
+- Developed a data ingestion prototype processing 100,000 synthetic energy records in 0.194 seconds in a local in-memory SQLite benchmark.
+- Implemented primary-key-based idempotent replay, reprocessing 10,000 existing records with zero additional rows in the prototype experiment.
+- Evaluated SQL query optimization through indexed versus non-indexed execution, measuring a 99.9% reduction in median query latency for a selective analytical query.
+- Tested data-quality validation against 1,000 deliberately injected invalid records in a 100,000-record synthetic dataset.
+- Designed an extensible ETL/ELT architecture for incremental ingestion, automated data testing, workflow orchestration, and analytics-ready warehouse modeling.
 
 # Technical Skills
-Languages: Python, C, C++, Java, SQL, Rust, HTML/CSS
 ML / CV: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy
-Systems & Tools: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n, MATLAB
+Systems & Tools: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n
+Data Engineering & Analytics: ETL/ELT Pipelines, Data Cleaning & Validation, SQL Query Optimization, Relational Database Design, Data Modeling, API Data Ingestion
 
 # Awards
 > 2nd Place Winner, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
-> Participant, Invent for the Planet Hackathon, INT Mahidol :: Feb 2025
 > Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU :: Sep 2023
-
