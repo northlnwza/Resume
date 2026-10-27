@@ -1,28 +1,37 @@
 @name: Thanakrit Jomhong
-@contact: 092-275-1575 | thanakritjomhong@gmail.com | linkedin.com/in/tjomhong2006 | github.com/northlnwza
+@contact: 092-275-1575 | thanakritjomhong@gmail.com | LinkedIn => https://linkedin.com/in/tjomhong2006 | GitHub => https://github.com/northlnwza
 
 # Education
-> Mahidol University :: Aug 2024 -- May 2028
+> Mahidol University :: Aug 2024 -- Present
 Bachelor of Engineering Program in Computer Engineering :: GPA: 3.90
 
 # Experience
 
 > Western Digital, Internship :: Jun 2026 -- Aug 2026
-Manufacturing Engineer(Machine Learning / Computer Vision), AVI Vision Enhancement
-- Built a YOLO instance segmentation pipeline for an Automated Visual Inspection (AVI) system on a live Genesis production line, targeting false-reject reduction in the ML re-inspection workflow.
-- Constructed a labeled defect dataset by hand-annotating 1,500+ production images across 6 defect classes using open-source annotation tooling. established labeling documentation standards to ensure annotation consistency and enable dataset expansion.
-- Integrated the model into the existing inspection pipeline, reducing manual review workload by 64%.
+Manufacturing Engineer (Machine Learning / Computer Vision), AVI Vision Enhancement
+- Built a YOLOv8 instance segmentation pipeline for automated visual inspection across 6 defect classes, achieving 45.3% mask mAP@50 on 142 held-out test images and GPU inference at 7.7 ms/image.
+- Constructed a labeled defect dataset by hand-annotating 1,500+ production images across 6 defect classes using open-source annotation tooling. Established labeling documentation standards to ensure annotation consistency and enable dataset expansion.
+- Communicated project progress, experimental results, and technical challenges to the engineering mentor and manager through weekly reports and discussions.
 
-> Head of Sponsorship Coordinator, ClickCamp16 :: May 2025 -- Dec 2025
-Mahidol Computer Engineering
-- Led sponsorship strategy and relationship management for a university computing camp, secured 130,000 THB in funding.
+> Head of Sponsorship Coordination, ClickCamp16 Core Team :: May 2025 -- Dec 2025
+Mahidol Engineering, Computer Engineering Department
+- Led sponsorship strategy and relationship management for a university computing camp; secured 130,000 THB in funding.
 - Contacted 200+ companies and built structured outreach-tracking workflows to manage the full sponsorship pipeline.
 
+<<<<<<< Updated upstream
+=======
+> Piscine, 42 Bangkok School :: May 2024 -- Jun 2024
+42 School, KMITL
+- Completed the intensive one-month selection program, delivering peer-evaluated C projects under strict deadlines with no formal instruction.
+- Core topics: C programming, UNIX and shell, Git and version control.
+
+>>>>>>> Stashed changes
 # Selected Projects
 > Banana Ripeness Classification | ResNet34, PyTorch, scikit-learn
 - Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.
 - Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5%.
 
+<<<<<<< Updated upstream
 > HR ChatBot | n8n selfhost, Docker, Supabase (PostgreSQL), LLM, RAG
 
 - Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.
@@ -39,7 +48,24 @@ Languages: Python, C, C++, Java, SQL, Rust, HTML/CSS
 ML / CV: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy
 Systems & Tools: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n
 English: TOEIC 865
+=======
+> HR Chatbot | Self-hosted n8n, Docker, Supabase (PostgreSQL), LLM, RAG
+- Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.
+- Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.
+
+- Developed PostgreSQL queries and JavaScript workflow logic for leave balance validation, request approval and cancellation, and Google Calendar integration, with interactive LINE Flex Messages.
+
+> Bangkok Public Transportation Passenger Insights | Pandas, NumPy, Matplotlib
+- Analyzed 14 months of multimodal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.
+- Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.
+
+# Skills
+Languages: Python, C, C++, Java, SQL, HTML / CSS
+ML / CV: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy
+Systems & Tools: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n
+English: TOEIC 865 / 990 (CEFR B2)
+>>>>>>> Stashed changes
 
 # Awards
-> 2nd Place Winner, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
+> 2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
 > Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU :: Sep 2023

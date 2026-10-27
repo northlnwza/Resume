@@ -1,13 +1,16 @@
-\documentclass[letterpaper,11pt]{article}
+\documentclass[a4paper,11pt]{article}
 
-\usepackage[empty]{fullpage}
+\usepackage[a4paper,margin=0.38in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\ifdefined\pdfgentounicode
 \input{glyphtounicode}
+\pdfgentounicode=1
+\fi
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -15,18 +18,12 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.6in}
-\addtolength{\textheight}{1.2in}
 \setlength{\footskip}{5pt}
 
 \urlstyle{same}
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
-\pdfgentounicode=1
 
 \titleformat{\section}{
   \vspace{-6pt}\scshape\raggedright\large
@@ -38,35 +35,35 @@
 
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
-  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-    \textbf{#1} & #2 \\
+  \begin{tabularx}{\linewidth}[t]{@{}Xr@{}}
+    \small\textbf{#1} & #2 \\
     \textit{\small #3} & \textit{\small #4} \\
-  \end{tabular*}\vspace{-6pt}
+  \end{tabularx}\vspace{-2pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
   \vspace{-2pt}\item
-  \begin{tabularx}{0.97\textwidth}[t]{@{}Xr@{}}
+  \begin{tabularx}{\linewidth}[t]{@{}Xr@{}}
     \small\textbf{#1} & #2 \\
-  \end{tabularx}\vspace{-6pt}
+  \end{tabularx}\vspace{-2pt}
 }
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in,label={},itemsep=3pt,topsep=2pt,parsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.25in]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.14in,itemsep=1pt,topsep=3pt,parsep=0pt,label=\textbullet]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \begin{document}
 
 \begin{center}
     {\Huge \textbf{Thanakrit Jomhong}} \\ \vspace{4pt}
-    \small 092-275-1575 $|$ \href{mailto:thanakritjomhong@gmail.com}{thanakritjomhong@gmail.com} $|$ \href{https://linkedin.com/in/tjomhong2006}{linkedin.com/in/tjomhong2006} $|$ \href{https://github.com/northlnwza}{github.com/northlnwza}
+    \small 092-275-1575 $|$ \href{mailto:thanakritjomhong@gmail.com}{thanakritjomhong@gmail.com} $|$ \href{https://linkedin.com/in/tjomhong2006}{LinkedIn} $|$ \href{https://github.com/northlnwza}{GitHub}
 \end{center}
 
 \section{Education}
 \resumeSubHeadingListStart
   \resumeSubheading
-    {Mahidol University}{Aug 2024 -- May 2028}
+    {Mahidol University}{Aug 2024 -- Present}
     {Bachelor of Engineering Program in Computer Engineering}{GPA: 3.90}
 \resumeSubHeadingListEnd
 
@@ -74,26 +71,37 @@
 \resumeSubHeadingListStart
   \resumeSubheading
     {Western Digital, Internship}{Jun 2026 -- Aug 2026}
-    {Manufacturing Engineer(Machine Learning / Computer Vision), AVI Vision Enhancement}{}
+    {Manufacturing Engineer (Machine Learning / Computer Vision), AVI Vision Enhancement}{}
     \resumeItemListStart
-      \resumeItem{Built a YOLO instance segmentation pipeline for an Automated Visual Inspection (AVI) system on a live Genesis production line, targeting false-reject reduction in the ML re-inspection workflow.}
-      \resumeItem{Constructed a labeled defect dataset by hand-annotating 1,500+ production images across 6 defect classes using open-source annotation tooling. established labeling documentation standards to ensure annotation consistency and enable dataset expansion.}
-      \resumeItem{Integrated the model into the existing inspection pipeline, reducing manual review workload by 64\%.}
+      \resumeItem{Built a YOLOv8 instance segmentation pipeline for automated visual inspection across 6 defect classes, achieving 45.3\% mask mAP@50 on 142 held-out test images and GPU inference at 7.7 ms/image.}
+      \resumeItem{Constructed a labeled defect dataset by hand-annotating 1,500+ production images across 6 defect classes using open-source annotation tooling. Established labeling documentation standards to ensure annotation consistency and enable dataset expansion.}
+      \resumeItem{Communicated project progress, experimental results, and technical challenges to the engineering mentor and manager through weekly reports and discussions.}
     \resumeItemListEnd
 
   \resumeSubheading
-    {Head of Sponsorship Coordinator, ClickCamp16}{May 2025 -- Dec 2025}
-    {Mahidol Computer Engineering}{}
+    {Head of Sponsorship Coordination, ClickCamp16 Core Team}{May 2025 -- Dec 2025}
+    {Mahidol Engineering, Computer Engineering Department}{}
     \resumeItemListStart
-      \resumeItem{Led sponsorship strategy and relationship management for a university computing camp, secured 130,000 THB in funding.}
+      \resumeItem{Led sponsorship strategy and relationship management for a university computing camp; secured 130,000 THB in funding.}
       \resumeItem{Contacted 200+ companies and built structured outreach-tracking workflows to manage the full sponsorship pipeline.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Piscine, 42 Bangkok School}{May 2024 -- Jun 2024}
+    {42 School, KMITL}{}
+    \resumeItemListStart
+      \resumeItem{Completed the intensive one-month selection program, delivering peer-evaluated C projects under strict deadlines with no formal instruction.}
+      \resumeItem{Core topics: C programming, UNIX and shell, Git and version control.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
 \section{Selected Projects}
+<<<<<<< Updated upstream
 \small
 – Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays andevents.
 \normalsize
+=======
+>>>>>>> Stashed changes
 \resumeSubHeadingListStart
   \resumeSubheading
     {Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}{}
@@ -103,38 +111,59 @@
       \resumeItem{Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5\%.}
     \resumeItemListEnd
 
+<<<<<<< Updated upstream
   \resumeSubheading
     {HR ChatBot $|$ n8n selfhost, Docker, Supabase (PostgreSQL), LLM, RAG}{}
     {}{}
+=======
+  \resumeProjectHeading
+    {HR Chatbot $|$ Self-hosted n8n, Docker, Supabase (PostgreSQL), LLM, RAG}{}
+>>>>>>> Stashed changes
     \resumeItemListStart
-      \resumeItem{Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.}
+      \resumeItem{Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.}
       \resumeItem{Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.}
+      \resumeItem{Developed PostgreSQL queries and JavaScript workflow logic for leave balance validation, request approval and cancellation, and Google Calendar integration, with interactive LINE Flex Messages.}
     \resumeItemListEnd
 
+<<<<<<< Updated upstream
   \resumeSubheading
     {Bangkok Public Transportation Passenger Insights $|$ Pandas, NumPy, Matplotlib}{}
     {– Analyzed 14 months of multi-modal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.}{}
+=======
+  \resumeProjectHeading
+    {Bangkok Public Transportation Passenger Insights $|$ Pandas, NumPy, Matplotlib}{}
+    \resumeItemListStart
+      \resumeItem{Analyzed 14 months of multimodal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.}
+      \resumeItem{Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.}
+    \resumeItemListEnd
+>>>>>>> Stashed changes
 \resumeSubHeadingListEnd
 
 \section{Skills}
-\begin{itemize}[leftmargin=0.15in, label={}]
+\begin{itemize}[leftmargin=0.12in,label={},itemsep=3pt,topsep=2pt,parsep=0pt]
   \small{\item{
+<<<<<<< Updated upstream
     \textbf{Languages}: Python, C, C++, Java, SQL, Rust, HTML/CSS \\
     \textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy \\
     \textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n \\
     \textbf{English}: TOEIC 865
+=======
+    \textbf{Languages}: Python, C, C++, Java, SQL, HTML / CSS \\
+    \textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy \\
+    \textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n \\
+    \textbf{English}: TOEIC 865 / 990 (CEFR B2)
+>>>>>>> Stashed changes
   }}
 \end{itemize}
 
 \section{Awards}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {2nd Place Winner, Super AI Engineer SS5 (AI Innovator Track, Western Region)}{Summer 2025}
-    {}{}
-
-  \resumeSubheading
-    {Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU}{Sep 2023}
-    {}{}
-\resumeSubHeadingListEnd
+\begingroup\small
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1.35}
+\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{12pt}}r@{}}
+  2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region) & Summer 2025 \\
+  Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU & Sep 2023 \\
+\end{tabularx}
+\endgroup
 
 \end{document}

@@ -68,7 +68,7 @@ fn parse_resume(source: &str) -> Resume {
     let mut current_entry: Option<usize> = None;
 
     for raw_line in source.lines() {
-        let line = raw_line.trim();
+        let line = raw_line.trim().trim_start_matches('\u{feff}');
         if line.is_empty() || line.starts_with("//") {
             continue;
         }
@@ -156,11 +156,18 @@ fn meta_value<'a>(resume: &'a Resume, key: &str) -> &'a str {
 }
 
 fn render_contact_item(token: &str) -> String {
-    let text = token.trim();
-    let label = escape_latex(text.trim_start_matches("https://").trim_start_matches("http://"));
+    let (label_text, text) = token
+        .trim()
+        .split_once(" => ")
+        .unwrap_or((token.trim(), token.trim()));
+    let label = escape_latex(
+        label_text
+            .trim_start_matches("https://")
+            .trim_start_matches("http://"),
+    );
 
     if text.contains('@') && !text.starts_with("http") {
-        return format!(r"\href{{mailto:{}}}{{{}}}", text, label);
+        return format!(r"\href{{mailto:{}}}{{{}}}", escape_latex(text), label);
     }
 
     if text.starts_with("http://")
@@ -173,7 +180,7 @@ fn render_contact_item(token: &str) -> String {
         } else {
             format!("https://{}", text)
         };
-        return format!(r"\href{{{}}}{{{}}}", href, label);
+        return format!(r"\href{{{}}}{{{}}}", escape_latex(&href), label);
     }
 
     escape_latex(text)
@@ -216,7 +223,7 @@ fn render_entry(section: &Section, entry: &Entry) -> String {
     let bullets = render_bullets(&entry.bullets);
     let section_key = section.title.to_lowercase();
     let should_use_project_heading = entry.detail.is_empty()
-        && (section_key == "projects" || section_key == "awards & activities");
+        && (section_key.contains("projects") || section_key.contains("awards"));
 
     if should_use_project_heading {
         let mut output = format!("  \\resumeProjectHeading\n    {{{}}}{{{}}}", title, right);
@@ -258,7 +265,9 @@ fn render_section(section: &Section) -> String {
     }
 
     if !section.skills.is_empty() {
-        output.push_str("\n\\begin{itemize}[leftmargin=0.15in, label={}]\n");
+        output.push_str(
+            "\n\\begin{itemize}[leftmargin=0.12in,label={},itemsep=3pt,topsep=2pt,parsep=0pt]\n",
+        );
         output.push_str("  \\small{\\item{\n");
         output.push_str(
             &section
@@ -275,6 +284,19 @@ fn render_section(section: &Section) -> String {
                 .join(" \\\\\n"),
         );
         output.push_str("\n  }}\n\\end{itemize}");
+    }
+
+    if section.title.eq_ignore_ascii_case("awards") && !section.entries.is_empty() {
+        output.push_str("\n\\begingroup\\small\n\\setlength{\\tabcolsep}{0pt}\n\\renewcommand{\\arraystretch}{1.35}\n\\noindent\\begin{tabularx}{\\linewidth}{@{}>{\\raggedright\\arraybackslash}X@{\\hspace{12pt}}r@{}}\n");
+        for entry in &section.entries {
+            output.push_str(&format!(
+                "  {} & {} \\\\\n",
+                escape_latex(&entry.title),
+                escape_latex(&entry.right)
+            ));
+        }
+        output.push_str("\\end{tabularx}\n\\endgroup");
+        return output;
     }
 
     if !section.entries.is_empty() {
@@ -295,9 +317,9 @@ fn render_section(section: &Section) -> String {
 
 fn render_latex(resume: &Resume) -> String {
     let mut output = String::from(
-        r"\documentclass[letterpaper,11pt]{article}
+        r"\documentclass[a4paper,11pt]{article}
 
-\usepackage[empty]{fullpage}
+\usepackage[a4paper,margin=0.38in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
@@ -315,11 +337,6 @@ fn render_latex(resume: &Resume) -> String {
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.6in}
-\addtolength{\textheight}{1.2in}
 \setlength{\footskip}{5pt}
 
 \urlstyle{same}
@@ -337,22 +354,22 @@ fn render_latex(resume: &Resume) -> String {
 
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
-  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-    \textbf{#1} & #2 \\
+  \begin{tabularx}{\linewidth}[t]{@{}Xr@{}}
+    \small\textbf{#1} & #2 \\
     \textit{\small #3} & \textit{\small #4} \\
-  \end{tabular*}\vspace{-6pt}
+  \end{tabularx}\vspace{-2pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
   \vspace{-2pt}\item
-  \begin{tabularx}{0.97\textwidth}[t]{@{}Xr@{}}
+  \begin{tabularx}{\linewidth}[t]{@{}Xr@{}}
     \small\textbf{#1} & #2 \\
-  \end{tabularx}\vspace{-6pt}
+  \end{tabularx}\vspace{-2pt}
 }
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in,label={},itemsep=3pt,topsep=2pt,parsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.25in]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.14in,itemsep=1pt,topsep=3pt,parsep=0pt,label=\textbullet]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \begin{document}
@@ -376,15 +393,17 @@ fn render_latex(resume: &Resume) -> String {
 
 fn has_command(command: &str) -> bool {
     let status = if cfg!(windows) {
-        Command::new("where").arg(command).status()
+        Command::new("where").arg(command).output()
     } else {
         Command::new("sh")
             .arg("-c")
             .arg(format!("command -v {}", command))
-            .status()
+            .output()
     };
 
-    status.map(|status| status.success()).unwrap_or(false)
+    status
+        .map(|output| output.status.success())
+        .unwrap_or(false)
 }
 
 fn run(command: &str, args: &[&str]) -> bool {
@@ -434,6 +453,14 @@ fn build_pdf(tex_file: &str) -> bool {
 
 fn main() -> ExitCode {
     let args = env::args().skip(1).collect::<Vec<_>>();
+    if args
+        .iter()
+        .any(|arg| arg.starts_with("--") && arg != "--pdf")
+        || args.iter().filter(|arg| !arg.starts_with("--")).count() > 2
+    {
+        eprintln!("Usage: resume-compiler [input.txt] [output.tex] [--pdf]");
+        return ExitCode::FAILURE;
+    }
     let should_build_pdf = args.iter().any(|arg| arg == "--pdf");
     let positional = args
         .iter()
@@ -441,8 +468,14 @@ fn main() -> ExitCode {
         .cloned()
         .collect::<Vec<_>>();
 
-    let input_file = positional.get(0).map(String::as_str).unwrap_or("resume.txt");
-    let output_file = positional.get(1).map(String::as_str).unwrap_or("resume.tex");
+    let input_file = positional
+        .get(0)
+        .map(String::as_str)
+        .unwrap_or("resume.txt");
+    let output_file = positional
+        .get(1)
+        .map(String::as_str)
+        .unwrap_or("resume.tex");
 
     let source = match fs::read_to_string(input_file) {
         Ok(source) => source,
@@ -453,6 +486,10 @@ fn main() -> ExitCode {
     };
 
     let resume = parse_resume(&source);
+    if meta_value(&resume, "name").is_empty() || resume.sections.is_empty() {
+        eprintln!("Resume requires @name and at least one # section.");
+        return ExitCode::FAILURE;
+    }
     let latex = render_latex(&resume);
 
     if let Some(parent) = Path::new(output_file).parent() {
@@ -474,4 +511,39 @@ fn main() -> ExitCode {
     }
 
     ExitCode::SUCCESS
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn bom_and_right_columns_are_parsed() {
+        let resume = parse_resume(
+            "\u{feff}@name: Test\n# Education\n> University :: 2024\nDegree :: GPA: 3.90",
+        );
+        assert_eq!(meta_value(&resume, "name"), "Test");
+        assert_eq!(resume.sections[0].entries[0].right, "2024");
+        assert_eq!(resume.sections[0].entries[0].detail_right, "GPA: 3.90");
+    }
+
+    #[test]
+    fn selected_projects_and_awards_have_no_empty_detail_row() {
+        let resume =
+            parse_resume("# Selected Projects\n> Project\n- Result\n# Awards\n> Award :: 2025");
+        for section in &resume.sections[..1] {
+            let rendered = render_section(section);
+            assert!(rendered.contains("\\resumeProjectHeading"));
+            assert!(!rendered.contains("\\resumeSubheading"));
+        }
+    }
+
+    #[test]
+    fn labeled_contacts_escape_link_targets() {
+        assert_eq!(
+            render_contact_item("GitHub => https://github.com/test_user"),
+            r"\href{https://github.com/test\_user}{GitHub}"
+        );
+        assert_eq!(escape_latex("50% & C_1"), r"50\% \& C\_1");
+    }
 }

@@ -94,3 +94,23 @@ sudo tlmgr install latexmk
 ```bash
 cargo run -- resume.txt resume.tex --pdf
 ```
+
+## Windows / WSL
+
+This project can use the Rust and LaTeX installations in WSL. From this
+folder in PowerShell, run:
+
+```powershell
+wsl --exec bash -lc 'cargo run -- resume.txt resume.tex --pdf'
+```
+
+Keep `resume.txt` as the source of truth; regenerating overwrites `resume.tex`.
+The default PDF layout is one A4 page with the original Computer Modern font. Longer content
+can flow to additional pages. Headings wrap to avoid colliding with dates.
+Use a labeled link in `@contact` to keep the header compact:
+
+```text
+@contact: email@example.com | LinkedIn => https://linkedin.com/in/your-profile
+```
+
+Run generator regression tests with `cargo test`.

@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+# Build the editable text source by default; explicit .tex inputs stay supported.
+if [[ $# -eq 0 ]]; then
+  cd "$SCRIPT_DIR"
+  cargo run -- resume.txt resume.tex --pdf
+  exit $?
+fi
+
 TEX_FILE="${1:-resume.tex}"
 OUT_DIR="${2:-build}"
 
