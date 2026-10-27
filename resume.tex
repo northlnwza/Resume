@@ -90,38 +90,38 @@
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\section{Projects}
+\section{Selected Projects}
+\small
+– Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays andevents.
+\normalsize
 \resumeSubHeadingListStart
-  \resumeProjectHeading
+  \resumeSubheading
     {Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}{}
+    {}{}
     \resumeItemListStart
       \resumeItem{Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.}
       \resumeItem{Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5\%.}
     \resumeItemListEnd
 
-  \resumeProjectHeading
+  \resumeSubheading
     {HR ChatBot $|$ n8n selfhost, Docker, Supabase (PostgreSQL), LLM, RAG}{}
+    {}{}
     \resumeItemListStart
       \resumeItem{Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.}
       \resumeItem{Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.}
     \resumeItemListEnd
 
-  \resumeProjectHeading
-    {EnergyPulse $|$ Python, SQL, SQLite, dbt, Apache Airflow, BigQuery}{}
-    \resumeItemListStart
-      \resumeItem{Developed a data ingestion prototype processing 100,000 synthetic energy records in 0.194 seconds in a local in-memory SQLite benchmark.}
-      \resumeItem{Implemented primary-key-based idempotent replay, reprocessing 10,000 existing records with zero additional rows in the prototype experiment.}
-      \resumeItem{Evaluated SQL query optimization through indexed versus non-indexed execution, measuring a 99.9\% reduction in median query latency for a selective analytical query.}
-      \resumeItem{Tested data-quality validation against 1,000 deliberately injected invalid records in a 100,000-record synthetic dataset.}
-    \resumeItemListEnd
+  \resumeSubheading
+    {Bangkok Public Transportation Passenger Insights $|$ Pandas, NumPy, Matplotlib}{}
+    {– Analyzed 14 months of multi-modal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.}{}
 \resumeSubHeadingListEnd
 
 \section{Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
   \small{\item{
+    \textbf{Languages}: Python, C, C++, Java, SQL, Rust, HTML/CSS \\
     \textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy \\
     \textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n \\
-    \textbf{Data Engineering \& Analytics}: ETL/ELT Pipelines, Data Cleaning \& Validation, SQL Query Optimization, Relational Database Design, Data Modeling, API Data Ingestion \\
     \textbf{English}: TOEIC 865
   }}
 \end{itemize}
