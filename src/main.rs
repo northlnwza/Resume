@@ -266,7 +266,7 @@ fn render_section(section: &Section) -> String {
 
     if !section.skills.is_empty() {
         output.push_str(
-            "\n\\begin{itemize}[leftmargin=0.12in,label={},itemsep=3pt,topsep=2pt,parsep=0pt]\n",
+            "\n\\begin{itemize}[leftmargin=0pt,label={},itemsep=3pt,topsep=2pt,parsep=0pt]\n",
         );
         output.push_str("  \\small{\\item{\n");
         output.push_str(
@@ -307,7 +307,15 @@ fn render_section(section: &Section) -> String {
                 .iter()
                 .map(|entry| render_entry(section, entry))
                 .collect::<Vec<_>>()
-                .join("\n\n"),
+                .join(
+                    if section.title.eq_ignore_ascii_case("experience")
+                        || section.title.to_lowercase().contains("projects")
+                    {
+                        "\n\n\\vspace{5pt}\n"
+                    } else {
+                        "\n\n"
+                    },
+                ),
         );
         output.push_str("\n\\resumeSubHeadingListEnd");
     }
@@ -367,9 +375,9 @@ fn render_latex(resume: &Resume) -> String {
   \end{tabularx}\vspace{-2pt}
 }
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in,label={},itemsep=3pt,topsep=2pt,parsep=0pt]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt,label={},itemsep=3pt,topsep=2pt,parsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.14in,itemsep=1pt,topsep=3pt,parsep=0pt,label=\textbullet]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.26in,itemsep=1pt,topsep=3pt,parsep=0pt,label=\textbullet]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \begin{document}

@@ -18,37 +18,16 @@ Mahidol Engineering, Computer Engineering Department
 - Led sponsorship strategy and relationship management for a university computing camp; secured 130,000 THB in funding.
 - Contacted 200+ companies and built structured outreach-tracking workflows to manage the full sponsorship pipeline.
 
-<<<<<<< Updated upstream
-=======
 > Piscine, 42 Bangkok School :: May 2024 -- Jun 2024
 42 School, KMITL
 - Completed the intensive one-month selection program, delivering peer-evaluated C projects under strict deadlines with no formal instruction.
 - Core topics: C programming, UNIX and shell, Git and version control.
 
->>>>>>> Stashed changes
 # Selected Projects
 > Banana Ripeness Classification | ResNet34, PyTorch, scikit-learn
 - Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.
 - Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5%.
 
-<<<<<<< Updated upstream
-> HR ChatBot | n8n selfhost, Docker, Supabase (PostgreSQL), LLM, RAG
-
-- Developed a cross-platform chatbot to automate HR workflows such as leave requests and benefit inquiries through the LINE Messaging API.
-- Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.
-
-> Bangkok Public Transportation Passenger Insights | Pandas, NumPy, Matplotlib
-
-– Analyzed 14 months of multi-modal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.
-– Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays andevents.
-
-
-# Skills
-Languages: Python, C, C++, Java, SQL, Rust, HTML/CSS
-ML / CV: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy
-Systems & Tools: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n
-English: TOEIC 865
-=======
 > HR Chatbot | Self-hosted n8n, Docker, Supabase (PostgreSQL), LLM, RAG
 - Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.
 - Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.
@@ -60,11 +39,10 @@ English: TOEIC 865
 - Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.
 
 # Skills
-Languages: Python, C, C++, Java, SQL, HTML / CSS
+Languages: Python, C, C++, Java, SQL, Rust, HTML / CSS
 ML / CV: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy
 Systems & Tools: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n
 English: TOEIC 865 / 990 (CEFR B2)
->>>>>>> Stashed changes
 
 # Awards
 > 2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
