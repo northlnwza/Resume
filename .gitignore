@@ -1,6 +1,33 @@
-build/
+# Keep the finished resume in Git; exclude build intermediates and previews.
+/build/*
+!/build/*.pdf
+
+# Rust compiler output (Cargo.lock stays tracked).
+/target/
+
+# LaTeX auxiliary files.
 *.aux
 *.fdb_latexmk
 *.fls
 *.log
 *.out
+*.synctex.gz
+*.toc
+*.xdv
+*.nav
+*.snm
+
+# Temporary files and local caches.
+/tmp/
+__pycache__/
+*.py[cod]
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Operating system metadata.
+.DS_Store
+Thumbs.db
+Desktop.ini
