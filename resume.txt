@@ -24,6 +24,10 @@ Mahidol Engineering, Computer Engineering Department
 - Core topics: C programming, UNIX and shell, Git and version control.
 
 # Selected Projects
+> Space Fighter | Java, Swing, OOP, Multithreading, Event-Driven Programming
+– Built a desktop arcade shooting game with player controls, automatic shooting, asteroid collision detection, upgrade mechanics, diﬀiculty levels, and sound settings.
+– Applied object-oriented design and concurrent programming by separating game entities into classes and using threads to manage asteroid spawning, bullet movement, and real-time gameplay.
+
 > Banana Ripeness Classification | ResNet34, PyTorch, scikit-learn
 - Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.
 - Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5%.
@@ -31,11 +35,7 @@ Mahidol Engineering, Computer Engineering Department
 > HR Chatbot | Self-hosted n8n, Docker, Supabase (PostgreSQL), LLM, RAG
 - Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.
 - Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.
-- Developed PostgreSQL queries and JavaScript workflow logic for leave balance validation, request approval and cancellation, and Google Calendar integration, with interactive LINE Flex Messages.
-
-> Space Fighter | Java, Swing, OOP, Multithreading, Event-Driven Programming
-– Built a desktop arcade shooting game with player controls, automatic shooting, asteroid collision detection, upgrade mechanics, diﬀiculty levels, and sound settings.
-– Applied object-oriented design and concurrent programming by separating game entities into classes and using threads to manage asteroid spawning, bullet movement, and real-time gameplay.
+- Developed PostgreSQL queries and JavaScript workflow logic for leave balance validation, request approval and cancellation, and Google Calendar integration, with interactive LINE Flex Messages. 
 
 # Skills
 Languages: Python, C, C++, Java, SQL, Rust, HTML / CSS
