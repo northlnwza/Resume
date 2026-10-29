@@ -520,81 +520,158 @@ fn run(command: &str, args: &[&str]) -> bool {
         .unwrap_or(false)
 }
 
-fn build_pdf(tex_file: &str) -> bool {
-    if fs::create_dir_all("build").is_err() {
-        eprintln!("Could not create build directory.");
-        return false;
-    }
+struct BuildDirectory(std::path::PathBuf);
 
-    if has_command("latexmk") {
-        return run(
-            "latexmk",
-            &[
-                "-pdf",
+impl BuildDirectory {
+    fn create(parent: &Path) -> std::io::Result<Self> {
+        fs::create_dir_all(parent)?;
+        let stamp = std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_nanos();
+        let path = parent.join(format!(".resume-build-{}-{stamp}", std::process::id()));
+        fs::create_dir(&path)?;
+        Ok(Self(path))
+    }
+}
+
+impl Drop for BuildDirectory {
+    fn drop(&mut self) {
+        let _ = fs::remove_dir_all(&self.0);
+    }
+}
+
+fn build_pdf(tex_file: &str, out_dir: &str) -> bool {
+    let result = (|| -> Result<(), String> {
+        let temp = BuildDirectory::create(Path::new(out_dir)).map_err(|e| e.to_string())?;
+        let tex = fs::canonicalize(tex_file).map_err(|e| e.to_string())?;
+        let source = tex.to_str().ok_or("LaTeX source path is not UTF-8")?;
+        let destination = temp.0.to_str().ok_or("Output path is not UTF-8")?;
+        let success = if has_command("latexmk") {
+            run(
+                "latexmk",
+                &[
+                    "-pdf",
+                    "-interaction=nonstopmode",
+                    "-halt-on-error",
+                    &format!("-output-directory={destination}"),
+                    source,
+                ],
+            )
+        } else if has_command("pdflatex") {
+            let args = [
                 "-interaction=nonstopmode",
                 "-halt-on-error",
-                "-output-directory=build",
-                tex_file,
-            ],
+                &format!("-output-directory={destination}"),
+                source,
+            ];
+            run("pdflatex", &args) && run("pdflatex", &args)
+        } else if has_command("tectonic") {
+            run("tectonic", &["--outdir", destination, source])
+        } else {
+            return Err("No LaTeX compiler found. Install latexmk, pdflatex, or tectonic.".into());
+        };
+        if !success {
+            return Err("LaTeX compilation failed; the previous PDF was kept.".into());
+        }
+        let name = tex.with_extension("pdf").file_name().unwrap().to_owned();
+        let output = Path::new(out_dir).join(&name);
+        fs::rename(temp.0.join(name), &output)
+            .map_err(|e| format!("Could not publish PDF: {e}"))?;
+        println!("Built {}", output.display());
+        Ok(())
+    })();
+    if let Err(error) = result {
+        eprintln!("{error}");
+        false
+    } else {
+        true
+    }
+}
+
+struct Options {
+    input: String,
+    output: String,
+    out_dir: String,
+    pdf: bool,
+    check: bool,
+}
+
+const USAGE: &str = "Usage: resume-compiler [input.txt] [output.tex] [--pdf] [--out-dir DIR]\n       resume-compiler [input.txt] --check";
+
+fn parse_options(args: &[String]) -> Result<Options, String> {
+    let mut options = Options {
+        input: "resume.txt".into(),
+        output: "resume.tex".into(),
+        out_dir: "build".into(),
+        pdf: false,
+        check: false,
+    };
+    let mut positional = Vec::new();
+    let mut args = args.iter();
+    while let Some(arg) = args.next() {
+        match arg.as_str() {
+            "--pdf" => options.pdf = true,
+            "--check" => options.check = true,
+            "--out-dir" => {
+                options.out_dir = args
+                    .next()
+                    .filter(|value| !value.starts_with('-') && !value.is_empty())
+                    .ok_or("--out-dir requires a directory")?
+                    .clone();
+            }
+            value if value.starts_with('-') => return Err(format!("Unknown option: {value}")),
+            _ => positional.push(arg.clone()),
+        }
+    }
+    if positional.len() > 2 || (options.check && (options.pdf || positional.len() > 1)) {
+        return Err(
+            "Use --check with only an input file, or provide input/output paths to build.".into(),
         );
     }
-
-    if has_command("pdflatex") {
-        let args = [
-            "-interaction=nonstopmode",
-            "-halt-on-error",
-            "-output-directory=build",
-            tex_file,
-        ];
-        return run("pdflatex", &args) && run("pdflatex", &args);
+    if let Some(input) = positional.first() {
+        options.input = input.clone();
     }
-
-    if has_command("tectonic") {
-        return run("tectonic", &["--outdir", "build", tex_file]);
+    if let Some(output) = positional.get(1) {
+        options.output = output.clone();
     }
-
-    eprintln!("No LaTeX compiler found. Install one of: latexmk, pdflatex, or tectonic.");
-    false
+    if !options.check
+        && Path::new(&options.output)
+            .extension()
+            .and_then(|ext| ext.to_str())
+            != Some("tex")
+    {
+        return Err(
+            "Output must end in .tex; your editable text source will not be overwritten.".into(),
+        );
+    }
+    Ok(options)
 }
 
 fn main() -> ExitCode {
     let args = env::args().skip(1).collect::<Vec<_>>();
-    if args
-        .iter()
-        .any(|arg| arg.starts_with("--") && arg != "--pdf")
-        || args.iter().filter(|arg| !arg.starts_with("--")).count() > 2
-    {
-        eprintln!("Usage: resume-compiler [input.txt] [output.tex] [--pdf]");
-        return ExitCode::FAILURE;
+    if args == ["--help"] || args == ["-h"] {
+        println!("{USAGE}");
+        return ExitCode::SUCCESS;
     }
-    let should_build_pdf = args.iter().any(|arg| arg == "--pdf");
-    let positional = args
-        .iter()
-        .filter(|arg| !arg.starts_with("--"))
-        .cloned()
-        .collect::<Vec<_>>();
-
-    let input_file = positional
-        .get(0)
-        .map(String::as_str)
-        .unwrap_or("resume.txt");
-    let output_file = positional
-        .get(1)
-        .map(String::as_str)
-        .unwrap_or("resume.tex");
-
-    let source = match fs::read_to_string(input_file) {
-        Ok(source) => source,
+    let options = match parse_options(&args) {
+        Ok(options) => options,
         Err(error) => {
-            eprintln!("Could not read {}: {}", input_file, error);
+            eprintln!("{error}\n{USAGE}");
             return ExitCode::FAILURE;
         }
     };
-
+    let source = match fs::read_to_string(&options.input) {
+        Ok(source) => source,
+        Err(error) => {
+            eprintln!("Could not read {}: {}", options.input, error);
+            return ExitCode::FAILURE;
+        }
+    };
     let resume = match parse_resume(&source) {
         Ok(resume) => resume,
         Err(error) => {
-            eprintln!("{}: {}", input_file, error);
+            eprintln!("{}: {}", options.input, error);
             return ExitCode::FAILURE;
         }
     };
@@ -604,29 +681,35 @@ fn main() -> ExitCode {
             .iter()
             .all(|section| section.blocks.is_empty())
     {
-        eprintln!("Resume requires @name and at least one # section.");
+        eprintln!(
+            "{}: requires @name and at least one nonempty # section.",
+            options.input
+        );
+        return ExitCode::FAILURE;
+    }
+    if options.check {
+        println!("Valid resume: {}", options.input);
+        return ExitCode::SUCCESS;
+    }
+    if fs::canonicalize(&options.input).ok() == fs::canonicalize(&options.output).ok() {
+        eprintln!("Input and output must be different files.");
         return ExitCode::FAILURE;
     }
     let latex = render_latex(&resume);
-
-    if let Some(parent) = Path::new(output_file).parent() {
+    if let Some(parent) = Path::new(&options.output).parent() {
         if !parent.as_os_str().is_empty() && fs::create_dir_all(parent).is_err() {
-            eprintln!("Could not create output directory for {}.", output_file);
+            eprintln!("Could not create output directory for {}.", options.output);
             return ExitCode::FAILURE;
         }
     }
-
-    if let Err(error) = fs::write(output_file, latex) {
-        eprintln!("Could not write {}: {}", output_file, error);
+    if let Err(error) = fs::write(&options.output, latex) {
+        eprintln!("Could not write {}: {}", options.output, error);
         return ExitCode::FAILURE;
     }
-
-    println!("Wrote {} from {}", output_file, input_file);
-
-    if should_build_pdf && !build_pdf(output_file) {
+    println!("Wrote {} from {}", options.output, options.input);
+    if options.pdf && !build_pdf(&options.output, &options.out_dir) {
         return ExitCode::FAILURE;
     }
-
     ExitCode::SUCCESS
 }
 
