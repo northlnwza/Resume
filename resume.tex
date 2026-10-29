@@ -7,6 +7,8 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{needspace}
+\usepackage{xurl}
 \ifdefined\pdfgentounicode
 \input{glyphtounicode}
 \pdfgentounicode=1
@@ -33,43 +35,95 @@
   \item\small{#1}
 }
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-  \begin{tabularx}{\linewidth}[t]{@{}Xr@{}}
-    \small\textbf{#1} & #2 \\
-    \textit{\small #3} & \textit{\small #4} \\
-  \end{tabularx}\vspace{-2pt}
+% Measure each heading so long dates wrap and headings stay with following text.
+\newsavebox{\resumeHeadingBox}
+\newsavebox{\resumeRightBox}
+\newlength{\resumeRightWidth}
+\newcommand{\resumeHeadingRows}[4]{%
+  #1 & #2%
+  \if\relax\detokenize{#3#4}\relax
+    \\
+  \else
+    \\ \textit{\small #3} & \textit{\small #4} \\
+  \fi
 }
-
-\newcommand{\resumeProjectHeading}[2]{
-  \vspace{-2pt}\item
-  \begin{tabularx}{\linewidth}[t]{@{}Xr@{}}
-    \small\textbf{#1} & #2 \\
-  \end{tabularx}\vspace{-2pt}
+\newcommand{\resumeHeadingTable}[4]{%
+  \sbox{\resumeRightBox}{#2}%
+  \setlength{\resumeRightWidth}{\wd\resumeRightBox}%
+  \sbox{\resumeRightBox}{\textit{\small #4}}%
+  \ifdim\wd\resumeRightBox>\resumeRightWidth
+    \setlength{\resumeRightWidth}{\wd\resumeRightBox}%
+  \fi
+  \ifdim\resumeRightWidth>0pt
+    \ifdim\resumeRightWidth>0.34\linewidth
+      \begin{tabularx}{\linewidth}[t]{@{}>{\raggedright\arraybackslash}X@{\hspace{12pt}}>{\raggedleft\arraybackslash}p{0.34\linewidth}@{}}
+        \resumeHeadingRows{#1}{#2}{#3}{#4}
+      \end{tabularx}%
+    \else
+      \begin{tabularx}{\linewidth}[t]{@{}>{\raggedright\arraybackslash}X@{\hspace{12pt}}r@{}}
+        \resumeHeadingRows{#1}{#2}{#3}{#4}
+      \end{tabularx}%
+    \fi
+  \else
+    \begin{tabularx}{\linewidth}[t]{@{}>{\raggedright\arraybackslash}Xr@{}}
+      \resumeHeadingRows{#1}{#2}{#3}{#4}
+    \end{tabularx}%
+  \fi
+}
+\newlength{\resumeSectionSpace}
+\newlength{\resumePreviousSkip}
+\newsavebox{\resumeSectionBox}
+\newcommand{\resumeSection}[3]{%
+  \sbox{\resumeHeadingBox}{#2}%
+  \setbox\resumeSectionBox=\vbox{\hsize=\linewidth\large\scshape\raggedright #1\par}%
+  \setlength{\resumeSectionSpace}{\dimexpr\ht\resumeHeadingBox+\dp\resumeHeadingBox+\ht\resumeSectionBox+\dp\resumeSectionBox+24pt+#3\baselineskip\relax}%
+  \par\setlength{\resumePreviousSkip}{\lastskip}%
+  \vskip-\resumePreviousSkip
+  \needspace{\resumeSectionSpace}%
+  \vskip\resumePreviousSkip
+  \section{#1}
+}
+\newcommand{\resumeSubheading}[5][0]{%
+  \sbox{\resumeHeadingBox}{\resumeHeadingTable{\small\textbf{#2}}{#3}{#4}{#5}}%
+  \needspace{\dimexpr\ht\resumeHeadingBox+\dp\resumeHeadingBox+#1\baselineskip\relax}%
+  \vspace{-2pt}\item\usebox{\resumeHeadingBox}\vspace{-2pt}
+}
+\newcommand{\resumeProjectHeading}[3][0]{\resumeSubheading[#1]{#2}{#3}{}{}}
+\newcommand{\resumeCompactHeading}[2]{%
+  \par\begingroup\small
+  \renewcommand{\arraystretch}{1.35}%
+  \sbox{\resumeHeadingBox}{\resumeHeadingTable{#1}{#2}{}{}}%
+  \needspace{\dimexpr\ht\resumeHeadingBox+\dp\resumeHeadingBox\relax}%
+  \nointerlineskip\noindent\usebox{\resumeHeadingBox}\par
+  \endgroup
 }
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt,label={},itemsep=3pt,topsep=2pt,parsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.26in,itemsep=1pt,topsep=3pt,parsep=0pt,label=\textbullet]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.26in,itemsep=1pt,topsep=3pt,parsep=0pt,beginpenalty=10000,label=\textbullet]}
+\newcommand{\resumeItemListEnd}{%
+  \end{itemize}%
+  % Tighten ordinary spacing, but never pull overflowing text back onto a page.
+  \ifdim\pagegoal>\dimexpr\pagetotal+2\baselineskip\relax\vspace{-5pt}\fi
+}
 
 \begin{document}
 
 \begin{center}
     {\Huge \textbf{Thanakrit Jomhong}} \\ \vspace{4pt}
-    \small 092-275-1575 $|$ \href{mailto:thanakritjomhong@gmail.com}{thanakritjomhong@gmail.com} $|$ \href{https://linkedin.com/in/tjomhong2006}{LinkedIn} $|$ \href{https://github.com/northlnwza}{GitHub}
+    \small 092-275-1575 $|$ \href{mailto:thanakritjomhong@gmail.com}{\nolinkurl{thanakritjomhong@gmail.com}} $|$ \href{https://linkedin.com/in/tjomhong2006}{LinkedIn} $|$ \href{https://github.com/northlnwza}{GitHub}
 \end{center}
 
-\section{Education}
+\resumeSection{Education}{\resumeHeadingTable{\small\textbf{Mahidol University}}{Aug 2024 -- Present}{Bachelor of Engineering Program in Computer Engineering}{GPA: 3.90}}{0}
 \resumeSubHeadingListStart
   \resumeSubheading
     {Mahidol University}{Aug 2024 -- Present}
     {Bachelor of Engineering Program in Computer Engineering}{GPA: 3.90}
 \resumeSubHeadingListEnd
 
-\section{Experience}
+\resumeSection{Experience}{\resumeHeadingTable{\small\textbf{Western Digital, Internship}}{Jun 2026 -- Aug 2026}{Manufacturing Engineer (Machine Learning / Computer Vision), AVI Vision Enhancement}{}}{2}
 \resumeSubHeadingListStart
-  \resumeSubheading
+  \resumeSubheading[2]
     {Western Digital, Internship}{Jun 2026 -- Aug 2026}
     {Manufacturing Engineer (Machine Learning / Computer Vision), AVI Vision Enhancement}{}
     \resumeItemListStart
@@ -79,7 +133,7 @@
     \resumeItemListEnd
 
 \vspace{5pt}
-  \resumeSubheading
+  \resumeSubheading[2]
     {Head of Sponsorship Coordination, ClickCamp16 Core Team}{May 2025 -- Dec 2025}
     {Mahidol Engineering, Computer Engineering Department}{}
     \resumeItemListStart
@@ -88,7 +142,7 @@
     \resumeItemListEnd
 
 \vspace{5pt}
-  \resumeSubheading
+  \resumeSubheading[2]
     {Piscine, 42 Bangkok School}{May 2024 -- Jun 2024}
     {42 School, KMITL}{}
     \resumeItemListStart
@@ -97,9 +151,9 @@
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\section{Selected Projects}
+\resumeSection{Selected Projects}{\resumeHeadingTable{\small\textbf{Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}}{}{}{}}{2}
 \resumeSubHeadingListStart
-  \resumeProjectHeading
+  \resumeProjectHeading[2]
     {Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}{}
     \resumeItemListStart
       \resumeItem{Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.}
@@ -107,7 +161,7 @@
     \resumeItemListEnd
 
 \vspace{5pt}
-  \resumeProjectHeading
+  \resumeProjectHeading[2]
     {HR Chatbot $|$ Self-hosted n8n, Docker, Supabase (PostgreSQL), LLM, RAG}{}
     \resumeItemListStart
       \resumeItem{Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.}
@@ -116,32 +170,29 @@
     \resumeItemListEnd
 
 \vspace{5pt}
-  \resumeProjectHeading
-    {Bangkok Public Transportation Passenger Insights $|$ Pandas, NumPy, Matplotlib}{}
+  \resumeProjectHeading[2]
+    {Space Fighter $|$ Java, Swing, OOP, Multithreading, Event-Driven Programming}{}
     \resumeItemListStart
-      \resumeItem{Analyzed 14 months of multimodal transit data across BTS, MRT, ARL, and Red Line services to identify passenger growth trends, market share shifts, and service stability.}
-      \resumeItem{Developed a Z-score anomaly detection model to correlate passenger-volume fluctuations with 35+ Thai holidays and events.}
+      \resumeItem{Built a desktop arcade shooting game with player controls, automatic shooting, asteroid collision detection, upgrade mechanics, difficulty levels, and sound settings.}
+      \resumeItem{Applied object-oriented design and concurrent programming by separating game entities into classes and using threads to manage asteroid spawning, bullet movement, and real-time gameplay.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\section{Skills}
-\begin{itemize}[leftmargin=0pt,label={},itemsep=3pt,topsep=2pt,parsep=0pt]
-  \small{\item{
-    \textbf{Languages}: Python, C, C++, Java, SQL, Rust, HTML / CSS \\
-    \textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy \\
-    \textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n \\
-    \textbf{English}: TOEIC 865 / 990 (CEFR B2)
-  }}
-\end{itemize}
-
-\section{Awards}
+\resumeSection{Skills}{\rule{0pt}{2\baselineskip}}{0}
 \begingroup\small
-\setlength{\tabcolsep}{0pt}
-\renewcommand{\arraystretch}{1.35}
-\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{12pt}}r@{}}
-  2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region) & Summer 2025 \\
-  Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU & Sep 2023 \\
-\end{tabularx}
+\begin{itemize}[leftmargin=0pt,label={},itemsep=0pt,topsep=2pt,parsep=0pt]
+  \item {\small\textbf{Languages}: Python, C, C++, Java, SQL, Rust, HTML / CSS}
+  \item {\small\textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy}
+  \item {\small\textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n}
+  \item {\small\textbf{English}: TOEIC 865 / 990 (CEFR B2)}
+
+\end{itemize}
 \endgroup
+
+\resumeSection{Awards}{\resumeHeadingTable{\small\textbf{2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region)}}{Summer 2025}{}{}}{0}
+  \resumeCompactHeading{2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region)}{Summer 2025}
+
+  \resumeCompactHeading{Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU}{Sep 2023}
+
 
 \end{document}
