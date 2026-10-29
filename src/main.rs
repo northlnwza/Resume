@@ -144,7 +144,10 @@ fn parse_resume(source: &str) -> Result<Resume, String> {
         if let Some(Block::Entry(entry)) = section.blocks.last_mut() {
             if !separated && continue_text(&mut entry.body, line) {
                 // Wrapped lines remain attached to the preceding bullet or paragraph.
-            } else if entry.detail.is_empty() && entry.body.is_empty() {
+            } else if entry.detail.is_empty()
+                && entry.detail_right.is_empty()
+                && entry.body.is_empty()
+            {
                 (entry.detail, entry.detail_right) = split_right_column(line);
             } else if !separated && entry.body.is_empty() {
                 entry.detail.push(' ');
@@ -152,13 +155,8 @@ fn parse_resume(source: &str) -> Result<Resume, String> {
             } else {
                 entry.body.push(Block::Paragraph(line.to_string()));
             }
-        } else if !separated && raw_line.starts_with(char::is_whitespace) {
-            if let Some(Block::Field(_, value)) = section.blocks.last_mut() {
-                value.push(' ');
-                value.push_str(line);
-            } else if !continue_text(&mut section.blocks, line) {
-                section.blocks.push(Block::Paragraph(line.to_string()));
-            }
+        } else if !separated && matches!(section.blocks.last(), Some(Block::Bullets(_))) {
+            continue_text(&mut section.blocks, line);
         } else if let Some((label, value)) = line
             .split_once(':')
             .filter(|(label, value)| !label.trim().is_empty() && !value.starts_with('/'))
@@ -167,6 +165,13 @@ fn parse_resume(source: &str) -> Result<Resume, String> {
                 label.trim().to_string(),
                 value.trim().to_string(),
             ));
+        } else if !separated && raw_line.starts_with(char::is_whitespace) {
+            if let Some(Block::Field(_, value)) = section.blocks.last_mut() {
+                value.push(' ');
+                value.push_str(line);
+            } else if !continue_text(&mut section.blocks, line) {
+                section.blocks.push(Block::Paragraph(line.to_string()));
+            }
         } else if separated || !continue_text(&mut section.blocks, line) {
             section.blocks.push(Block::Paragraph(line.to_string()));
         }
@@ -224,6 +229,11 @@ fn render_contact_item(token: &str) -> String {
             .trim_start_matches("http://"),
     );
 
+    let label = if label_text.trim() == text {
+        format!(r"\nolinkurl{{{label}}}")
+    } else {
+        label
+    };
     if text.contains('@') && !text.starts_with("http") {
         return format!(r"\href{{mailto:{}}}{{{}}}", escape_latex(text), label);
     }
@@ -290,13 +300,14 @@ fn render_entry(entry: &Entry) -> String {
     // A date-only entry is a compact row (awards, certificates, etc.).
     // Formatting depends on content, never on the section's spelling or position.
     let compact = is_compact(entry);
+    let keep = if entry.body.is_empty() { "" } else { "[2]" };
     let mut output = if compact {
         format!("  \\resumeCompactHeading{{{title}}}{{{right}}}")
     } else if entry.detail.is_empty() && entry.detail_right.is_empty() {
-        format!("  \\resumeProjectHeading\n    {{{title}}}{{{right}}}")
+        format!("  \\resumeProjectHeading{keep}\n    {{{title}}}{{{right}}}")
     } else {
         format!(
-            "  \\resumeSubheading\n    {{{title}}}{{{right}}}\n    {{{}}}{{{}}}",
+            "  \\resumeSubheading{keep}\n    {{{title}}}{{{right}}}\n    {{{}}}{{{}}}",
             escape_latex(&entry.detail),
             escape_latex(&entry.detail_right)
         )
@@ -323,7 +334,23 @@ fn render_section(section: &Section) -> String {
     if section.blocks.is_empty() {
         return String::new();
     }
-    let mut output = format!("\\section{{{}}}", escape_latex(&section.title));
+    let (first_heading, body_lines) = match &section.blocks[0] {
+        Block::Entry(entry) => (
+            format!(
+                "\\resumeHeadingTable{{\\small\\textbf{{{}}}}}{{{}}}{{{}}}{{{}}}",
+                escape_latex(&entry.title),
+                escape_latex(&entry.right),
+                escape_latex(&entry.detail),
+                escape_latex(&entry.detail_right)
+            ),
+            if entry.body.is_empty() { 0 } else { 2 },
+        ),
+        _ => (String::from("\\rule{0pt}{2\\baselineskip}"), 0),
+    };
+    let mut output = format!(
+        "\\resumeSection{{{}}}{{{first_heading}}}{{{body_lines}}}",
+        escape_latex(&section.title)
+    );
     let mut in_entries = false;
     let mut previous_entry_has_body = false;
     let mut in_fields = false;
@@ -338,9 +365,9 @@ fn render_section(section: &Section) -> String {
         }
         match block {
             Block::Entry(entry) if is_compact(entry) => {
-                output.push_str("\n");
+                output.push('\n');
                 output.push_str(&render_entry(entry));
-                output.push_str("\n");
+                output.push('\n');
             }
             Block::Entry(entry) => {
                 if !in_entries {
@@ -458,12 +485,25 @@ fn render_latex(resume: &Resume) -> String {
     \end{tabularx}%
   \fi
 }
-\newcommand{\resumeSubheading}[4]{%
-  \sbox{\resumeHeadingBox}{\resumeHeadingTable{\small\textbf{#1}}{#2}{#3}{#4}}%
-  \needspace{\dimexpr\ht\resumeHeadingBox+\dp\resumeHeadingBox+3\baselineskip\relax}%
+\newlength{\resumeSectionSpace}
+\newlength{\resumePreviousSkip}
+\newsavebox{\resumeSectionBox}
+\newcommand{\resumeSection}[3]{%
+  \sbox{\resumeHeadingBox}{#2}%
+  \setbox\resumeSectionBox=\vbox{\hsize=\linewidth\large\scshape\raggedright #1\par}%
+  \setlength{\resumeSectionSpace}{\dimexpr\ht\resumeHeadingBox+\dp\resumeHeadingBox+\ht\resumeSectionBox+\dp\resumeSectionBox+24pt+#3\baselineskip\relax}%
+  \par\setlength{\resumePreviousSkip}{\lastskip}%
+  \vskip-\resumePreviousSkip
+  \needspace{\resumeSectionSpace}%
+  \vskip\resumePreviousSkip
+  \section{#1}
+}
+\newcommand{\resumeSubheading}[5][0]{%
+  \sbox{\resumeHeadingBox}{\resumeHeadingTable{\small\textbf{#2}}{#3}{#4}{#5}}%
+  \needspace{\dimexpr\ht\resumeHeadingBox+\dp\resumeHeadingBox+#1\baselineskip\relax}%
   \vspace{-2pt}\item\usebox{\resumeHeadingBox}\vspace{-2pt}
 }
-\newcommand{\resumeProjectHeading}[2]{\resumeSubheading{#1}{#2}{}{}}
+\newcommand{\resumeProjectHeading}[3][0]{\resumeSubheading[#1]{#2}{#3}{}{}}
 \newcommand{\resumeCompactHeading}[2]{%
   \par\begingroup\small
   \renewcommand{\arraystretch}{1.35}%
@@ -476,7 +516,11 @@ fn render_latex(resume: &Resume) -> String {
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt,label={},itemsep=3pt,topsep=2pt,parsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.26in,itemsep=1pt,topsep=3pt,parsep=0pt,beginpenalty=10000,label=\textbullet]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{%
+  \end{itemize}%
+  % Tighten ordinary spacing, but never pull overflowing text back onto a page.
+  \ifdim\pagegoal>\dimexpr\pagetotal+2\baselineskip\relax\vspace{-5pt}\fi
+}
 
 \begin{document}
 
@@ -744,11 +788,12 @@ mod tests {
     #[test]
     fn selected_projects_and_awards_have_no_empty_detail_row() {
         let resume = parsed("# Selected Projects\n> Project\n- Result\n# Awards\n> Award :: 2025");
-        for section in &resume.sections[..1] {
+        for section in &resume.sections {
             let rendered = render_section(section);
-            assert!(rendered.contains("\\resumeProjectHeading"));
             assert!(!rendered.contains("\\resumeSubheading"));
         }
+        assert!(render_section(&resume.sections[0]).contains("\\resumeProjectHeading"));
+        assert!(render_section(&resume.sections[1]).contains("\\resumeCompactHeading"));
     }
 
     #[test]
@@ -819,11 +864,10 @@ mod tests {
 
     #[test]
     fn wrapped_bullet_text_does_not_become_a_subtitle() {
-        let rendered = render_latex(&parsed(
-            "# Projects\n> Game\n- Built a game\n  using Java and Swing",
-        ));
+        let resume = parsed("# Projects\n> Game\n- Built a game\n  using Java and Swing");
+        let rendered = render_section(&resume.sections[0]);
         assert!(rendered.contains(r"\resumeItem{Built a game using Java and Swing}"));
-        assert!(!rendered.contains("\\resumeSubheading\n"));
+        assert!(!rendered.contains("\\resumeSubheading"));
     }
 
     #[test]
@@ -989,7 +1033,7 @@ mod tests {
         let source =
             "# Empty\n# Projects\n> Game\n- Built it\n@name: Test\n@contact: test@example.com";
         let rendered = render_latex(&parsed(source));
-        assert!(!rendered.contains("\\section{Empty}"));
+        assert!(!rendered.contains("{Empty}"));
         assert!(rendered.contains("\\textbf{Test}"));
         assert!(rendered.contains("mailto:test@example.com"));
     }
@@ -1004,5 +1048,21 @@ mod tests {
             escape_latex("C# & 50% _ $ {x} \\ ~ ^"),
             r"C\# \& 50\% \_ \$ \{x\} \textbackslash{} \textasciitilde{} \textasciicircum{}"
         );
+    }
+
+    #[test]
+    fn indented_fields_remain_separate_but_wrapped_values_continue() {
+        let canonical = parsed("# Skills\nLanguages: Rust, Java\nTools: Git and Docker");
+        let indented = parsed("# Skills\n  Languages: Rust, Java\n  Tools: Git\n    and Docker");
+        assert_eq!(render_latex(&canonical), render_latex(&indented));
+    }
+
+    #[test]
+    fn colons_in_wrapped_bullets_do_not_create_fields() {
+        let rendered = render_latex(&parsed(
+            "# Highlights\n- Result\n  details: measured improvement\n\nTools: Git",
+        ));
+        assert!(rendered.contains(r"\resumeItem{Result details: measured improvement}"));
+        assert!(rendered.contains(r"\textbf{Tools}"));
     }
 }
