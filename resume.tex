@@ -151,16 +151,8 @@
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\resumeSection{Selected Projects}{\resumeHeadingTable{\small\textbf{Space Fighter $|$ Java, Swing, OOP, Multithreading, Event-Driven Programming}}{}{}{}}{2}
+\resumeSection{Selected Projects}{\resumeHeadingTable{\small\textbf{Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}}{}{}{}}{2}
 \resumeSubHeadingListStart
-  \resumeProjectHeading[2]
-    {Space Fighter $|$ Java, Swing, OOP, Multithreading, Event-Driven Programming}{}
-    \resumeItemListStart
-      \resumeItem{Built a desktop arcade shooting game with player controls, automatic shooting, asteroid collision detection, upgrade mechanics, difficulty levels, and sound settings.}
-      \resumeItem{Applied object-oriented design and concurrent programming by separating game entities into classes and using threads to manage asteroid spawning, bullet movement, and real-time gameplay.}
-    \resumeItemListEnd
-
-\vspace{5pt}
   \resumeProjectHeading[2]
     {Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}{}
     \resumeItemListStart
@@ -170,11 +162,20 @@
 
 \vspace{5pt}
   \resumeProjectHeading[2]
-    {HR Chatbot $|$ Self-hosted n8n, Docker, Supabase (PostgreSQL), LLM, RAG}{}
+    {HR Chatbot $|$ Self-hosted n8n, Docker, Supabase(PostgreSQL), LLM, RAG}{}
     \resumeItemListStart
       \resumeItem{Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.}
       \resumeItem{Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.}
       \resumeItem{Developed PostgreSQL queries and JavaScript workflow logic for leave balance validation, request approval and cancellation, and Google Calendar integration, with interactive LINE Flex Messages.}
+    \resumeItemListEnd
+
+\vspace{5pt}
+  \resumeProjectHeading[2]
+    {EnergyPulse $|$ Python, SQL, SQLite, dbt, Apache Airflow, BigQuery}{}
+    \resumeItemListStart
+      \resumeItem{Developed a data ingestion prototype processing 100,000 synthetic energy records in 0.194 seconds in a local in-memory SQLite benchmark.}
+      \resumeItem{Implemented primary-key-based idempotent replay, reprocessing 10,000 existing records with zero additional rows in the prototype experiment.}
+      \resumeItem{Evaluated SQL query optimization through indexed versus non-indexed execution, measuring a 99.9\% reduction in median query latency for a selective analytical query.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -183,6 +184,7 @@
 \begin{itemize}[leftmargin=0pt,label={},itemsep=0pt,topsep=2pt,parsep=0pt]
   \item {\small\textbf{Languages}: Python, C, C++, Java, SQL, Rust, HTML / CSS}
   \item {\small\textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy}
+  \item {\small\textbf{Data Engineering}: ETL \& ELT, Data Mining, Data Pipelines, Data Quality}
   \item {\small\textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n}
   \item {\small\textbf{English}: TOEIC 865 / 990 (CEFR B2)}
 
@@ -191,8 +193,6 @@
 
 \resumeSection{Awards}{\resumeHeadingTable{\small\textbf{2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region)}}{Summer 2025}{}{}}{0}
   \resumeCompactHeading{2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region)}{Summer 2025}
-
-  \resumeCompactHeading{Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU}{Sep 2023}
 
 
 \end{document}

@@ -24,25 +24,26 @@ Mahidol Engineering, Computer Engineering Department
 - Core topics: C programming, UNIX and shell, Git and version control.
 
 # Selected Projects
-> Space Fighter | Java, Swing, OOP, Multithreading, Event-Driven Programming
-– Built a desktop arcade shooting game with player controls, automatic shooting, asteroid collision detection, upgrade mechanics, diﬀiculty levels, and sound settings.
-– Applied object-oriented design and concurrent programming by separating game entities into classes and using threads to manage asteroid spawning, bullet movement, and real-time gameplay.
-
 > Banana Ripeness Classification | ResNet34, PyTorch, scikit-learn
 - Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.
 - Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5%.
 
-> HR Chatbot | Self-hosted n8n, Docker, Supabase (PostgreSQL), LLM, RAG
+> HR Chatbot | Self-hosted n8n, Docker, Supabase(PostgreSQL), LLM, RAG
 - Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.
 - Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.
 - Developed PostgreSQL queries and JavaScript workflow logic for leave balance validation, request approval and cancellation, and Google Calendar integration, with interactive LINE Flex Messages. 
 
+> EnergyPulse | Python, SQL, SQLite, dbt, Apache Airflow, BigQuery
+– Developed a data ingestion prototype processing 100,000 synthetic energy records in 0.194 seconds in a local in-memory SQLite benchmark.
+– Implemented primary-key-based idempotent replay, reprocessing 10,000 existing records with zero additional rows in the prototype experiment.
+– Evaluated SQL query optimization through indexed versus non-indexed execution, measuring a 99.9% reduction in median query latency for a selective analytical query.
+
 # Skills
 Languages: Python, C, C++, Java, SQL, Rust, HTML / CSS
 ML / CV: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy
+Data Engineering: ETL & ELT, Data Mining, Data Pipelines, Data Quality
 Systems & Tools: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n
 English: TOEIC 865 / 990 (CEFR B2)
 
 # Awards
 > 2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region) :: Summer 2025
-> Gold Medal, Onsite Presentation, Data Science Project Contest 2023, CMU :: Sep 2023
