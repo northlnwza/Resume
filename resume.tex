@@ -137,7 +137,7 @@
     {Head of Sponsorship Coordination, ClickCamp16 Core Team}{May 2025 -- Dec 2025}
     {Mahidol Engineering, Computer Engineering Department}{}
     \resumeItemListStart
-      \resumeItem{Led sponsorship strategy and relationship management for a university computing camp; secured 130,000 THB in funding.}
+      \resumeItem{Led sponsorship strategy and relationship management, secured 130,000 THB in funding.}
       \resumeItem{Contacted 200+ companies and built structured outreach-tracking workflows to manage the full sponsorship pipeline.}
     \resumeItemListEnd
 
@@ -146,23 +146,24 @@
     {Piscine, 42 Bangkok School}{May 2024 -- Jun 2024}
     {42 School, KMITL}{}
     \resumeItemListStart
-      \resumeItem{Completed the intensive one-month selection program, delivering peer-evaluated C projects under strict deadlines with no formal instruction.}
+      \resumeItem{Completed the intensive one-month selection program}
       \resumeItem{Core topics: C programming, UNIX and shell, Git and version control.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\resumeSection{Selected Projects}{\resumeHeadingTable{\small\textbf{Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}}{}{}{}}{2}
+\resumeSection{Selected Projects}{\resumeHeadingTable{\small\textbf{FahMai Thai RAG, Hackathon Prototype $|$  RAG, BM25, Typhoon LLM}}{}{}{}}{2}
 \resumeSubHeadingListStart
   \resumeProjectHeading[2]
-    {Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}{}
+    {FahMai Thai RAG, Hackathon Prototype $|$  RAG, BM25, Typhoon LLM}{}
     \resumeItemListStart
-      \resumeItem{Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.}
-      \resumeItem{Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5\%.}
+      \resumeItem{Built a retrieval-augmented question-answering pipeline over a Markdown knowledge base, splitting documents into searchable chunks with source and category metadata.}
+      \resumeItem{Implemented hybrid retrieval using multilingual sentence embeddings with cosine similarity and BM25, combining rankings with reciprocal-rank fusion}
+      \resumeItem{scoring 0.90 on the public leaderboard}
     \resumeItemListEnd
 
 \vspace{5pt}
   \resumeProjectHeading[2]
-    {HR Chatbot $|$ Self-hosted n8n, Docker, Supabase(PostgreSQL), LLM, RAG}{}
+    {HR Chatbot $|$ n8n Orchestration(Self-hosted), Docker, Supabase(PostgreSQL)}{}
     \resumeItemListStart
       \resumeItem{Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.}
       \resumeItem{Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.}
@@ -171,11 +172,10 @@
 
 \vspace{5pt}
   \resumeProjectHeading[2]
-    {EnergyPulse $|$ Python, SQL, SQLite, dbt, Apache Airflow, BigQuery}{}
+    {Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}{}
     \resumeItemListStart
-      \resumeItem{Developed a data ingestion prototype processing 100,000 synthetic energy records in 0.194 seconds in a local in-memory SQLite benchmark.}
-      \resumeItem{Implemented primary-key-based idempotent replay, reprocessing 10,000 existing records with zero additional rows in the prototype experiment.}
-      \resumeItem{Evaluated SQL query optimization through indexed versus non-indexed execution, measuring a 99.9\% reduction in median query latency for a selective analytical query.}
+      \resumeItem{Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.}
+      \resumeItem{Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5\%.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -183,16 +183,21 @@
 \begingroup\small
 \begin{itemize}[leftmargin=0pt,label={},itemsep=0pt,topsep=2pt,parsep=0pt]
   \item {\small\textbf{Languages}: Python, C, C++, Java, SQL, Rust, HTML / CSS}
-  \item {\small\textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, Pandas, NumPy}
-  \item {\small\textbf{Data Engineering}: ETL \& ELT, Data Mining, Data Pipelines, Data Quality}
-  \item {\small\textbf{Systems \& Tools}: Docker, Git/GitHub, FastAPI, Linux, Supabase, Vercel, n8n}
+  \item {\small\textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, PyTorch, Pandas, NumPy}
+  \item {\small\textbf{LLM}: RAG, LangChain, VectorDatabase}
+  \item {\small\textbf{Systems \& Tools}: Docker, Git, GitHub Actions (CI/CD), FastAPI, Linux, Supabase, Vercel, n8n}
   \item {\small\textbf{English}: TOEIC 865 / 990 (CEFR B2)}
 
 \end{itemize}
 \endgroup
 
-\resumeSection{Awards}{\resumeHeadingTable{\small\textbf{2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region)}}{Summer 2025}{}{}}{0}
-  \resumeCompactHeading{2nd Place, Practice AI, Super AI Engineer SS5 (AI Innovator Track, Western Region)}{Summer 2025}
-
+\resumeSection{Awards}{\resumeHeadingTable{\small\textbf{2nd Place, Super AI Engineer SS5 (AI Innovator Track, Western Region)}}{Summer 2025}{}{}}{2}
+\resumeSubHeadingListStart
+  \resumeProjectHeading[2]
+    {2nd Place, Super AI Engineer SS5 (AI Innovator Track, Western Region)}{Summer 2025}
+    \resumeItemListStart
+      \resumeItem{Project: PracticeAI Organized By Artificial Intelligence Association of Thailand (AIAT)}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
 
 \end{document}
