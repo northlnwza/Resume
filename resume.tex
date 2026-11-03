@@ -151,31 +151,30 @@
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\resumeSection{Selected Projects}{\resumeHeadingTable{\small\textbf{FahMai Thai RAG, Hackathon Prototype $|$  RAG, BM25, Typhoon LLM}}{}{}{}}{2}
+\resumeSection{Selected Projects}{\resumeHeadingTable{\small\textbf{NYC Taxi Data Platform $|$ PostgreSQL, dbt, Apache Airflow, Streamlit}}{}{}{}}{2}
 \resumeSubHeadingListStart
+  \resumeProjectHeading[2]
+    {NYC Taxi Data Platform $|$ PostgreSQL, dbt, Apache Airflow, Streamlit}{}
+    \resumeItemListStart
+      \resumeItem{Built an ELT pipeline processing 7.05 million taxi records, retaining monthly history with transactional reloads that prevent duplicate ingestion.}
+      \resumeItem{Developed dbt staging and daily analytics models with five automated data tests, including required-field checks, date uniqueness, and daily row-count reconciliation.}
+      \resumeItem{Orchestrated parameterized ingestion and transformation workflows using Apache Airflow, with task dependencies and retry handling and containerized the pipeline using Docker Compose.}
+    \resumeItemListEnd
+
+\vspace{5pt}
   \resumeProjectHeading[2]
     {FahMai Thai RAG, Hackathon Prototype $|$  RAG, BM25, Typhoon LLM}{}
     \resumeItemListStart
       \resumeItem{Built a retrieval-augmented question-answering pipeline over a Markdown knowledge base, splitting documents into searchable chunks with source and category metadata.}
-      \resumeItem{Implemented hybrid retrieval using multilingual sentence embeddings with cosine similarity and BM25, combining rankings with reciprocal-rank fusion}
-      \resumeItem{scoring 0.90 on the public leaderboard}
+      \resumeItem{Implemented hybrid retrieval using multilingual sentence embeddings with cosine similarity and BM25, combining rankings with reciprocal-rank fusion, scoring 0.90 on the public leaderboard}
     \resumeItemListEnd
 
 \vspace{5pt}
   \resumeProjectHeading[2]
-    {HR Chatbot $|$ n8n Orchestration(Self-hosted), Docker, Supabase(PostgreSQL)}{}
+    {HR Chatbot $|$ n8n Orchestration(Self-hosted), AI AGENT, Supabase(PostgreSQL)}{}
     \resumeItemListStart
       \resumeItem{Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.}
       \resumeItem{Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.}
-      \resumeItem{Developed PostgreSQL queries and JavaScript workflow logic for leave balance validation, request approval and cancellation, and Google Calendar integration, with interactive LINE Flex Messages.}
-    \resumeItemListEnd
-
-\vspace{5pt}
-  \resumeProjectHeading[2]
-    {Banana Ripeness Classification $|$ ResNet34, PyTorch, scikit-learn}{}
-    \resumeItemListStart
-      \resumeItem{Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.}
-      \resumeItem{Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5\%.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -183,8 +182,9 @@
 \begingroup\small
 \begin{itemize}[leftmargin=0pt,label={},itemsep=0pt,topsep=2pt,parsep=0pt]
   \item {\small\textbf{Languages}: Python, C, C++, Java, SQL, Rust, HTML / CSS}
-  \item {\small\textbf{ML / CV}: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, PyTorch, Pandas, NumPy}
+  \item {\small\textbf{ML / CV}: Ultralytics YOLO, OpenCV, scikit-learn, PyTorch, Pandas, NumPy}
   \item {\small\textbf{LLM}: RAG, LangChain, VectorDatabase}
+  \item {\small\textbf{Data Engineering}: ETL \& ELT, Data Mining, Data Pipelines, Data Quality}
   \item {\small\textbf{Systems \& Tools}: Docker, Git, GitHub Actions (CI/CD), FastAPI, Linux, Supabase, Vercel, n8n}
   \item {\small\textbf{English}: TOEIC 865 / 990 (CEFR B2)}
 

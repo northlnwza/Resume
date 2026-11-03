@@ -24,24 +24,24 @@ Mahidol Engineering, Computer Engineering Department
 - Core topics: C programming, UNIX and shell, Git and version control.
 
 # Selected Projects
+> NYC Taxi Data Platform | PostgreSQL, dbt, Apache Airflow, Streamlit
+- Built an ELT pipeline processing 7.05 million taxi records, retaining monthly history with transactional reloads that prevent duplicate ingestion.
+- Developed dbt staging and daily analytics models with five automated data tests, including required-field checks, date uniqueness, and daily row-count reconciliation.
+- Orchestrated parameterized ingestion and transformation workflows using Apache Airflow, with task dependencies and retry handling and containerized the pipeline using Docker Compose.
+
 > FahMai Thai RAG, Hackathon Prototype |  RAG, BM25, Typhoon LLM
 - Built a retrieval-augmented question-answering pipeline over a Markdown knowledge base, splitting documents into searchable chunks with source and category metadata.
-- Implemented hybrid retrieval using multilingual sentence embeddings with cosine similarity and BM25, combining rankings with reciprocal-rank fusion
-- scoring 0.90 on the public leaderboard
+- Implemented hybrid retrieval using multilingual sentence embeddings with cosine similarity and BM25, combining rankings with reciprocal-rank fusion, scoring 0.90 on the public leaderboard
 
-> HR Chatbot | n8n Orchestration(Self-hosted), Docker, Supabase(PostgreSQL)
+> HR Chatbot | n8n Orchestration(Self-hosted), AI AGENT, Supabase(PostgreSQL)
 - Integrated the LINE Messaging API with an n8n POST webhook endpoint, containerizing the local environment with Docker Compose and configuring ngrok HTTPS tunneling for webhook testing.
 - Built a RAG pipeline over HR policy documents with LLM-based intent extraction, handling multiple intent categories end-to-end.
-- Developed PostgreSQL queries and JavaScript workflow logic for leave balance validation, request approval and cancellation, and Google Calendar integration, with interactive LINE Flex Messages. 
-
-> Banana Ripeness Classification | ResNet34, PyTorch, scikit-learn
-- Built a proprietary dataset from scratch by photographing bananas daily over 3+ months across their full ripeness lifecycle, capturing natural progression from fresh to rotten under real conditions.
-- Iterated on class taxonomy through multiple relabeling experiments, testing different ripeness stage boundaries to maximize inter-class separability, improving F1-score to 87.5%.
 
 # Skills
 Languages: Python, C, C++, Java, SQL, Rust, HTML / CSS
-ML / CV: PyTorch, Ultralytics YOLO, OpenCV, scikit-learn, PyTorch, Pandas, NumPy
+ML / CV: Ultralytics YOLO, OpenCV, scikit-learn, PyTorch, Pandas, NumPy
 LLM: RAG, LangChain, VectorDatabase
+Data Engineering: ETL & ELT, Data Mining, Data Pipelines, Data Quality
 Systems & Tools: Docker, Git, GitHub Actions (CI/CD), FastAPI, Linux, Supabase, Vercel, n8n
 English: TOEIC 865 / 990 (CEFR B2)
 
